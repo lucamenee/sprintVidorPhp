@@ -56,11 +56,23 @@ if (!isLogged()) {
 			$idFiglio = $rowFigli["IdBimbo"];
 
 			$queryResultParticipation = mysqli_query($con, "SELECT * FROM partecipa WHERE idCorsaFK = $idCorsa AND idBimboFK = $idFiglio");
-			if (mysqli_num_rows($queryResultParticipation)>0) 
+			if (mysqli_num_rows($queryResultParticipation)>0) {
 				$stringToInsert = "disiscrivi";
-			else 
+				$iscritto = true;
+			} else {
 				$stringToInsert = "iscrivi";
-			echo "<td> <a href=insertParticipation.php?idFiglio=$idFiglio> <button>$stringToInsert $nomeFiglio</button> </a> </td>";
+				$iscritto = false;
+			}
+			echo "<td> <form action=insertParticipation.php method=POST> 
+				<input type=hidden name=idFiglio value=$idFiglio>
+				<input type=hidden name=idCorsa value=$idCorsa>
+				<input type=hidden name=iscritto value=$iscritto>
+				<input type=submit name=sub value='$stringToInsert $nomeFiglio'>
+				</form> </td> ";
+			/*
+			inserisci modo per non permettere l'iscrizione al quel determinato bambino a quella gara 
+			(non mostrare bottone ma scritta in corsivo tipo: "iscrizione non possibile")
+			*/
 		}
 
 		echo "</tr> \n";
