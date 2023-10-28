@@ -7,25 +7,14 @@ if (!isLogged()) {
 	header('Location: ./login');
 } else {
 	echo "<h1>Sprint Vidor</h1>";
-	
-	/*
-	if ($_SESSION["isParent"] and (!$_SESSION["isTrainer"] or !$_SESSION["isAdmin"])) {
-		echo "solo GENITORE";
-		//redirect to parent stuff (loading child participation)
-	}
-	else {
-		echo "NON solo GENITORE";
-		//printing links to what they are able to do
-	}
-	*/
 
 	$idUser = $_SESSION["idUser"];
 	/* showing upcoming races and:
-	-for parents: clicking a button u can say ur child partcipate or not and show what races your child willl partcipate
+	-for parents: clicking a button u can say ur child partcipate or not and show what races your child will partcipate
 	-for trainers: clicking a button u can see what kids will and will not participate */
 	$today = today();
 	$con = connection();
-	$queryResultCorse = mysqli_query($con, "SELECT * FROM corse where dataEvento >= $today");
+	$queryResultCorse = mysqli_query($con, "SELECT * FROM corse where dataEvento >= $today ORDER BY dataEvento");
 
 	echo "<table name=races border=1> \n";
 	echo "<tr> <th>luogo</th> <th>data evento</th> <th>ora</th> <th>indirizzo</th> </tr>";
@@ -71,10 +60,13 @@ if (!isLogged()) {
 			if ($dataChiusuraIscrizioni < today()) {
 				echo "<td>$nomeFiglio $iscritto</td>";
 			} else {
-				echo "<td> <form action=insertParticipation.php method=POST> 
+				echo "<td> <form action=insertParticipation.php method=POST>
 					<input type=hidden name=idBimbo value=$idFiglio>
 					<input type=hidden name=idCorsa value=$idCorsa>
 					<input type=hidden name=iscritto value=$iscrizione>
+					<input type=hidden name=nomeBimbo value=$nomeFiglio>
+					<input type=hidden name=dataCorsa value=$dataEvento>
+					<input type=hidden name=luogoCorsa value=$luogo>
 					<input type=submit name=sub value='$stringToInsert $nomeFiglio'>
 					</form> </td> ";
 			}
@@ -94,6 +86,12 @@ if (!isLogged()) {
 
 
 	
+	/*
+	aggiugni bottone che permetta di escludere bambini in determinate gare
+		scegli se farlo:
+		 .per ogni gara pulsante a finco che apre pagina per escludere gente
+		 .metti link alla fine a pagina che con due combobox selezioni bambino e corsa per cui è escluso
+	*/
 	
 	printLogout(); //da mettere a fine pagina o comunque impaginato bene
 }

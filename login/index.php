@@ -2,7 +2,7 @@
 require_once('../functions/login.php');
 session_start();
 
-if ($_SESSION["isLogged"] == true)
+if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"] == true)
 	header('Location: ../index.php');
 
 ?>
@@ -21,7 +21,7 @@ if (isset($_POST["go"])) {
 		$_SESSION["idUser"] = $id;
 		$_SESSION["isLogged"] = true;
 		
-		$conn= connection();
+		$conn = connection();
 		$queryResultParent = mysqli_query($conn, "SELECT * FROM rigaruoli WHERE idUserFK = $id AND idRuoloFK = 2");		
 		$_SESSION["isParent"] = (mysqli_num_rows($queryResultParent) == 1);
 		

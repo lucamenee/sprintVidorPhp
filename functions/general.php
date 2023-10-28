@@ -21,7 +21,7 @@ function today() {
 }
 
 // crea funzione per mostrare date in formato ITA
-function convertDataIta ($originalDate) {
+function convertDataIta($originalDate) {
 	return date("d/m/Y", strtotime($originalDate));
 }
 
