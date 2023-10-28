@@ -2,6 +2,9 @@
 require_once('../functions/login.php');
 session_start();
 
+if ($_SESSION["isLogged"] == true)
+	header('Location: ../index.php');
+
 ?>
 
 	<form action=# method=POST>

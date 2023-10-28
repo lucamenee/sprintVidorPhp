@@ -16,4 +16,13 @@ function cutSeconds($input) {
 	return substr($input, 0, -3);
 }
 
+function today() {
+	return date_create()->format('Y-m-d');
+}
+
+// crea funzione per mostrare date in formato ITA
+function convertDataIta ($originalDate) {
+	return date("d/m/Y", strtotime($originalDate));
+}
+
 ?>
