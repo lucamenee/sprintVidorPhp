@@ -20,9 +20,18 @@ function today() {
 	return date_create()->format('Y-m-d');
 }
 
-// crea funzione per mostrare date in formato ITA
+//mostra date in formato ITA
 function convertDataIta($originalDate) {
 	return date("d/m/Y", strtotime($originalDate));
+}
+
+function printHead() {
+	/*
+	echo "<head>
+	  <base href='localhost/sprintVidor/' target='_blank'>
+	</head>";
+	*/
+	echo "<div align=center> <img src='img/logo.png' width=120 height=120 align=right> <h1> SPRINT VIDOR </h1><h2> LA VALLATA A.S.D. </h2> </div>";
 }
 
 ?>

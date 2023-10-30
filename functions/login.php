@@ -1,5 +1,6 @@
 <?php
 require_once('general.php');
+printHead();
 
 function isInLogin() {
 	$username = $_POST['username'];

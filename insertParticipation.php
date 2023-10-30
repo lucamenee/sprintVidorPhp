@@ -1,6 +1,7 @@
 <?php
 require_once('functions/general.php');
 session_start();
+printHead();
 
 if (!isLogged() or !isset($_POST["sub"])) {
 	echo "redirectoring to login";
@@ -26,8 +27,8 @@ if (!isLogged() or !isset($_POST["sub"])) {
 		if ($iscritto) {
 			$queryResult = mysqli_query($con, "UPDATE partecipa SET iscritto=false WHERE idBimboFK = $idBimbo AND idCorsaFK = $idCorsa");
 		} else {
-			$queryResult = mysqli_query($con, "INSERT INTO partecipa (idBimboFK, idCorsaFK, iscritto) VALUES ($idBimbo, $idCorsa, true)");
-			$queryResult = mysqli_query($con, "UPDATE partecipa SET iscritto=true WHERE idBimboFK = $idBimbo AND idCorsaFK = $idCorsa");
+			$queryResult = mysqli_query($con, "INSERT INTO partecipa (idBimboFK, idCorsaFK, iscritto, escluso) VALUES ($idBimbo, $idCorsa, true, false)");
+			$queryResult = mysqli_query($con, "UPDATE partecipa SET iscritto=true, escluso=false WHERE idBimboFK = $idBimbo AND idCorsaFK = $idCorsa");
 		}
 		
 		echo "<h2> $stringPostConferma confermata </h2>";

@@ -1,12 +1,13 @@
 <?php
 require_once('functions/general.php');
 session_start();
+printHead();
 
 if (!isLogged()) {
 	echo "redirectoring to login";
 	header('Location: ./login');
 } else {
-	echo "<h1>Sprint Vidor</h1>";
+	//echo "<h1>Sprint Vidor</h1>";
 
 	/*
 	metti "barra delle funzioni" prima della tabella [solo per allenatori e amministratori]

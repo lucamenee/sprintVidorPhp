@@ -7,6 +7,7 @@ function createTableRaceKids($iscritti, $idCorsa) {
 	//iscritti=1 -> mostra bimbi iscritti
 	//iscritti=0 -> mostra bimbi non iscritti (esplicitamente)
 	//iscritti=-1 -> mostra bimbi che non hanno deciso
+	//iscritti=-2 -> mostra bimbi esclusi
 	
 	$con=connection();
 	$stringToPrintSubModifica = "+";
@@ -21,11 +22,15 @@ function createTableRaceKids($iscritti, $idCorsa) {
 			$stringToPrintTitle = "Non iscritti";
 			$stringToPrintTitleAlt = "non iscritto";
 		}
-		$query = "SELECT * FROM partecipa JOIN bimbi ON (idBimboFK = idBimbo) JOIN categorie ON (idCatFK = idCat) WHERE idCorsaFK=$idCorsa and iscritto=$iscritti";
-	} else {
+		$query = "SELECT * FROM partecipa JOIN bimbi ON (idBimboFK = idBimbo) JOIN categorie ON (idCatFK = idCat) WHERE idCorsaFK=$idCorsa AND iscritto=$iscritti AND escluso=false";
+	} else if ($iscritti == -1) {
 		$stringToPrintTitle = "Scelta non effettuata";	
 		$stringToPrintTitleAlt = "con scelta non effettuata";
 		$query = "SELECT b.*, c.* FROM bimbi b JOIN categorie c ON (idCatFK = idCat) WHERE NOT EXISTS (SELECT 1 FROM partecipa p WHERE p.idBimboFK = b.idBimbo AND idCorsaFK=$idCorsa)";
+	} else {
+		$stringToPrintTitle = "Esclusi";	
+		$stringToPrintTitleAlt = "escluso";
+		$query = "SELECT * FROM partecipa JOIN bimbi ON (idBimboFK = idBimbo) JOIN categorie ON (idCatFK = idCat) WHERE idCorsaFK=$idCorsa AND escluso=true";
 	}
 
 	$modifica = (isset($_POST["postBack"]) and $_POST["postBack"] != "fine modifica");

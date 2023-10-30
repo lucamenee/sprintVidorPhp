@@ -2,12 +2,13 @@
 require_once('functions/general.php');
 require_once('functions/vistaCorseFunctions.php');
 session_start();
+printHead();
 
 if ((!isLogged()  or !$_SESSION["isAdmin"] or !$_SESSION["isTrainer"]) and !isset($_POST["postBack"]) and isset($_POST["sub"])) {
 	echo "redirectoring to login";
 	header('Location: ./login');
 } else {
-	echo "<h1>Sprint Vidor</h1>";
+	//echo "<h1>Sprint Vidor</h1>";
 	echo "<form action=./> <input type=submit value='← indietro'> </form>";
 
 	$idCorsa = $_REQUEST["idCorsa"];
@@ -39,6 +40,8 @@ if ((!isLogged()  or !$_SESSION["isAdmin"] or !$_SESSION["isTrainer"]) and !isse
 	createTableRaceKids(0, $idCorsa);
 	//tabella di chi non ha effettuato la scelta
 	createTableRaceKids(-1, $idCorsa);
+	//tabella di chi è escluso
+	createTableRaceKids(-2, $idCorsa);
 }
 
 ?>
