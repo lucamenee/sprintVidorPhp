@@ -16,9 +16,12 @@ if (!isLogged() or !isset($_POST["sub"])) {
 	if ($iscritto) $stringPostConferma = "disiscrizione";
 	else $stringPostConferma = "iscrizione";
 
+	if(isset($_POST["pagPrec"])) $gotoPag = $_POST["pagPrec"];
+	else $gotoPag = "index.php";
+
 	if ($_POST["sub"] == 'annulla') {
 		echo "<h2> $stringPostConferma non confermata </h2>";
-		header('Refresh:1.5; URL= index.php');
+		header("Refresh:1.5; URL= $gotoPag");
 	} else if ($_POST["sub"] == 'conferma') {
 		if ($iscritto) {
 			$queryResult = mysqli_query($con, "UPDATE partecipa SET iscritto=false WHERE idBimboFK = $idBimbo AND idCorsaFK = $idCorsa");
@@ -28,12 +31,12 @@ if (!isLogged() or !isset($_POST["sub"])) {
 		}
 		
 		echo "<h2> $stringPostConferma confermata </h2>";
-		header("Refresh:1.5; URL= index.php");
+		header("Refresh:1.5; URL= $gotoPag");
 	} else {
 
-		$nomeBimbo = $_POST["nomeBimbo"];
-		$luogoCorsa = $_POST["luogoCorsa"];
-		$dataCorsa = $_POST["dataCorsa"];
+		$nomeBimbo = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bimbi WHERE IdBimbo=$idBimbo"))["nome"];
+		$luogoCorsa = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM corse WHERE IdCorsa=$idCorsa"))["luogo"];
+		$dataCorsa = convertDataIta(mysqli_fetch_array(mysqli_query($con, "SELECT * FROM corse WHERE IdCorsa=$idCorsa"))["dataEvento"]);
 		
 
 		//form per conferma iscrizione/cancellazione iscrizione
@@ -44,10 +47,11 @@ if (!isLogged() or !isset($_POST["sub"])) {
 			$stringPreConferma = "iscrizione";
 
 		echo "Conferma $stringPreConferma di $nomeBimbo per la gara di $luogoCorsa del $dataCorsa <br>\n";
-		echo "<input type=submit submit name=sub value=conferma> <input type=submit name=sub value=annulla>\n";
+		echo "<input type=submit name=sub value=conferma> <input type=submit name=sub value=annulla>\n";
 		echo "<input type=hidden name=idBimbo value=$idBimbo>
 			<input type=hidden name=idCorsa value=$idCorsa>
-			<input type=hidden name=iscritto value=$iscritto>";
+			<input type=hidden name=iscritto value=$iscritto>
+			<input type=hidden name=pagPrec value=$gotoPag>";
 		echo "</form>";
 	}
 

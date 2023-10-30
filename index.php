@@ -8,16 +8,30 @@ if (!isLogged()) {
 } else {
 	echo "<h1>Sprint Vidor</h1>";
 
+	/*
+	metti "barra delle funzioni" prima della tabella [solo per allenatori e amministratori]
+	(vista archivio vecchie corse, escludi bambini da determinate corse, gestione anagrafica->(inserimento bambini e genitori, gestione relazione bimbi-genitori))
+			statistiche bimbi->(elenco bimbi con corse con cui hanno partecipato)
+	*/
+	printLogout(); /* impagina meglio, metti in barra funzioni per allenatori o in alto a destra per genitori*/
+
 	$idUser = $_SESSION["idUser"];
-	/* showing upcoming races and:
-	-for parents: clicking a button u can say ur child partcipate or not and show what races your child will partcipate
-	-for trainers: clicking a button u can see what kids will and will not participate */
+	//showing upcoming races and:
+	// -for parents: clicking a button u can say ur child partcipate or not and show what races your child will partcipate
+	// -for trainers: clicking a button u can see what kids will and will not participate 
 	$today = today();
 	$con = connection();
 	$queryResultCorse = mysqli_query($con, "SELECT * FROM corse where dataEvento >= $today ORDER BY dataEvento");
-
+	
+	$queryFigli = "SELECT * FROM genitore_di JOIN bimbi on (idBimboFK = idBimbo) WHERE idUserFK = $idUser";
+	$queryResultFigliHead = mysqli_query($con, $queryFigli);
 	echo "<table name=races border=1> \n";
-	echo "<tr> <th>luogo</th> <th>data evento</th> <th>ora</th> <th>indirizzo</th> </tr>";
+	echo "<tr> <th>luogo</th> <th>data evento</th> <th>ora</th> <th>indirizzo</th>";
+	while ($rowFigliHead = mysqli_fetch_array($queryResultFigliHead)) {
+		$nomeFiglioHead = $rowFigliHead["nome"];
+		echo "<th> $nomeFiglioHead </th>";
+	}
+	echo "</tr>";
 	while ($row = mysqli_fetch_array($queryResultCorse)) {
 		$idCorsa = $row["idCorsa"];
 		$luogo = $row["luogo"];
@@ -40,7 +54,7 @@ if (!isLogged()) {
 		echo "</td>"; 
 
 		//showing childs' subscription buttton
-		$queryResultFigli = mysqli_query($con, "SELECT * FROM genitore_di JOIN bimbi on (idBimboFK = idBimbo) WHERE idUserFK = $idUser");
+		$queryResultFigli = mysqli_query($con, $queryFigli);
 		while ($rowFigli = mysqli_fetch_array($queryResultFigli)) {
 			$nomeFiglio = $rowFigli["nome"];
 			$idFiglio = $rowFigli["IdBimbo"];
@@ -56,10 +70,17 @@ if (!isLogged()) {
 				$iscritto = "non iscritto";
 			}
 
-			//blocca bottone iscrizione e mostra solo una scritta se iscrizioni per quella corsa sono già terminate
-			if ($dataChiusuraIscrizioni < today()) {
-				echo "<td>$nomeFiglio $iscritto</td>";
-			} else {
+			//checking if the kid is allowed to participate to that race
+			$queryResultEscluso = mysqli_query($con, "SELECT * FROM partecipa WHERE idCorsaFK = $idCorsa AND idBimboFK = $idFiglio AND escluso = true");
+			if (mysqli_num_rows($queryResultEscluso)>0)  $escluso = true;
+			else $escluso = false;
+
+			//bottone iscrizione bloccato se iscrizioni per quella corsa sono già terminate e mostra solo una scritta 
+			if ($dataChiusuraIscrizioni < today()) { //iscrizioni terminate
+				echo "<td> <i>$iscritto</i></td>";
+			} else if ($escluso) { //partecipazione non consentita
+				echo "<td> <i> Iscrizione non possibile </i> </td>";
+			} else { //iscrizioni aperte
 				echo "<td> <form action=insertParticipation.php method=POST>
 					<input type=hidden name=idBimbo value=$idFiglio>
 					<input type=hidden name=idCorsa value=$idCorsa>
@@ -67,13 +88,10 @@ if (!isLogged()) {
 					<input type=hidden name=nomeBimbo value=$nomeFiglio>
 					<input type=hidden name=dataCorsa value=$dataEvento>
 					<input type=hidden name=luogoCorsa value=$luogo>
-					<input type=submit name=sub value='$stringToInsert $nomeFiglio'>
+					<input type=submit name=sub value='$stringToInsert'>
 					</form> </td> ";
 			}
-			/*
-			.inserisci modo per non permettere l'iscrizione al quel determinato bambino a quella gara 
-			(non mostrare bottone ma scritta in corsivo tipo: "iscrizione non possibile")
-			*/
+			
 		}
 
 		//showing button for race's info
@@ -84,16 +102,6 @@ if (!isLogged()) {
 	}
 	echo "</table>";
 
-
-	
-	/*
-	aggiugni bottone che permetta di escludere bambini in determinate gare
-		scegli se farlo:
-		 .per ogni gara pulsante a finco che apre pagina per escludere gente
-		 .metti link alla fine a pagina che con due combobox selezioni bambino e corsa per cui è escluso
-	*/
-	
-	printLogout(); //da mettere a fine pagina o comunque impaginato bene
 }
 
 ?>
