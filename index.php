@@ -14,6 +14,12 @@ if (!isLogged()) {
 	(vista archivio vecchie corse, escludi bambini da determinate corse, gestione anagrafica->(inserimento bambini e genitori, gestione relazione bimbi-genitori))
 			statistiche bimbi->(elenco bimbi con corse con cui hanno partecipato)
 	*/
+	if ($_SESSION["isAdmin"] or $_SESSION["isTrainer"]) {
+		echo "<a href=./gestioneAnagrafiche> Gestione anagrafiche </a> <br>\n";
+		echo "<a href=./statistiche> Statistiche </a> <br>\n";
+		echo "<a href=./archivioCorse> Archivio corse </a> <br>\n";
+	}
+
 	printLogout(); /* impagina meglio, metti in barra funzioni per allenatori o in alto a destra per genitori*/
 
 	$idUser = $_SESSION["idUser"];

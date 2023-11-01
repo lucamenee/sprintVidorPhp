@@ -12,9 +12,14 @@ if (!isLogged() or !isset($_POST["sub"])) {
 	$idBimbo = $_POST["idBimbo"];
 	$idCorsa = $_POST["idCorsa"];
 	$iscritto = $_POST["iscritto"];
+	if (isset($_POST["escludi"])) 
+		$escludi = $_POST["escludi"];
+	else 
+		$escludi=0;
 
 	$con = connection();
-	if ($iscritto) $stringPostConferma = "disiscrizione";
+	if ($escludi) $stringPostConferma = "esclusione";
+	else if ($iscritto) $stringPostConferma = "disiscrizione";
 	else $stringPostConferma = "iscrizione";
 
 	if(isset($_POST["pagPrec"])) $gotoPag = $_POST["pagPrec"];
@@ -25,10 +30,10 @@ if (!isLogged() or !isset($_POST["sub"])) {
 		header("Refresh:1.5; URL= $gotoPag");
 	} else if ($_POST["sub"] == 'conferma') {
 		if ($iscritto) {
-			$queryResult = mysqli_query($con, "UPDATE partecipa SET iscritto=false WHERE idBimboFK = $idBimbo AND idCorsaFK = $idCorsa");
+			$queryResult = mysqli_query($con, "UPDATE partecipa SET iscritto=0, escluso=$escludi WHERE idBimboFK = $idBimbo AND idCorsaFK = $idCorsa");
 		} else {
 			$queryResult = mysqli_query($con, "INSERT INTO partecipa (idBimboFK, idCorsaFK, iscritto, escluso) VALUES ($idBimbo, $idCorsa, true, false)");
-			$queryResult = mysqli_query($con, "UPDATE partecipa SET iscritto=true, escluso=false WHERE idBimboFK = $idBimbo AND idCorsaFK = $idCorsa");
+			$queryResult = mysqli_query($con, "UPDATE partecipa SET iscritto=true, escluso=$escludi WHERE idBimboFK = $idBimbo AND idCorsaFK = $idCorsa");
 		}
 		
 		echo "<h2> $stringPostConferma confermata </h2>";
@@ -42,17 +47,17 @@ if (!isLogged() or !isset($_POST["sub"])) {
 
 		//form per conferma iscrizione/cancellazione iscrizione
 		echo "<form action=# method=POST>\n";
-		if ($iscritto)
-			$stringPreConferma = "disiscrizione";
-		else 
-			$stringPreConferma = "iscrizione";
+		if ($escludi) $stringPreConferma = "esclusione";
+		else if ($iscritto) $stringPreConferma = "disiscrizione";
+		else $stringPreConferma = "iscrizione";
 
 		echo "Conferma $stringPreConferma di $nomeBimbo per la gara di $luogoCorsa del $dataCorsa <br>\n";
 		echo "<input type=submit name=sub value=conferma> <input type=submit name=sub value=annulla>\n";
 		echo "<input type=hidden name=idBimbo value=$idBimbo>
 			<input type=hidden name=idCorsa value=$idCorsa>
 			<input type=hidden name=iscritto value=$iscritto>
-			<input type=hidden name=pagPrec value=$gotoPag>";
+			<input type=hidden name=pagPrec value=$gotoPag>
+			<input type=hidden name=escludi value=$escludi>";
 		echo "</form>";
 	}
 

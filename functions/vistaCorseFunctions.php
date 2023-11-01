@@ -11,13 +11,14 @@ function createTableRaceKids($iscritti, $idCorsa) {
 	
 	$con=connection();
 	$stringToPrintSubModifica = "+";
-	$iscritto = false;
+	$iscritto = 0;
+	$stringToPrintEscludi = "escludi";
 	if ($iscritti >= 0) {
 		if ($iscritti == 1) {
 			$stringToPrintTitle = "Iscritti";
 			$stringToPrintTitleAlt = "iscritto";
 			$stringToPrintSubModifica = "-";
-			$iscritto = true;
+			$iscritto = 1;
 		} else if ($iscritti == 0) {
 			$stringToPrintTitle = "Non iscritti";
 			$stringToPrintTitleAlt = "non iscritto";
@@ -31,6 +32,7 @@ function createTableRaceKids($iscritti, $idCorsa) {
 		$stringToPrintTitle = "Esclusi";	
 		$stringToPrintTitleAlt = "escluso";
 		$query = "SELECT * FROM partecipa JOIN bimbi ON (idBimboFK = idBimbo) JOIN categorie ON (idCatFK = idCat) WHERE idCorsaFK=$idCorsa AND escluso=true";
+		$stringToPrintEscludi = "rimuovi esclusione";
 	}
 
 	$modifica = (isset($_POST["postBack"]) and $_POST["postBack"] != "fine modifica");
@@ -40,7 +42,7 @@ function createTableRaceKids($iscritti, $idCorsa) {
 		echo "<table border=1>\n";
 		echo "<tr>";
 		if ($modifica) {
-			echo "<th></th>";
+			echo "<th></th><th></th>";
 		}
 		echo "<th>Nome</th> <th>Cognome</th> <th>Data di nascita</th> <th>Categoria</th> </tr>\n";
 		while ($row = mysqli_fetch_array($queryResultKids)) {
@@ -52,9 +54,18 @@ function createTableRaceKids($iscritti, $idCorsa) {
 
 			echo "<tr>";
 			if ($modifica) {
-				echo "<form action=insertParticipation.php method=POST>";
-				echo "<td> <input type=submit name=sub value=$stringToPrintSubModifica> <input type=hidden name=idBimbo value=$id> <input type=hidden name=idCorsa value=$idCorsa> <input type=hidden name=iscritto value=$iscritto> <input type=hidden name=pagPrec value='vistaCorse.php?idCorsa=$idCorsa'></td>";
-				echo "</form>";
+				for ($i=0; $i<2; $i++) {
+					echo "<form action=insertParticipation.php method=POST>";
+					echo " <input type=hidden name=idBimbo value=$id> <input type=hidden name=idCorsa value=$idCorsa> <input type=hidden name=iscritto value=$iscritto> <input type=hidden name=pagPrec value='vistaCorse.php?idCorsa=$idCorsa'>  <td>";
+					if ($i==0) {
+						if ($iscritti == -2) $escludi = 0;
+						else $escludi = 1;
+						echo "<input type=submit name=sub value='$stringToPrintEscludi'><input type=hidden name=escludi value=$escludi>";
+					} else {
+						echo "<input type=submit name=sub value=$stringToPrintSubModifica>";
+					}
+					echo "</td></form>";
+				}
 			}
 			echo "<td> $nome </td> <td> $cognome </td> <td> $dataNascita </td> <td> $categoria </td> </tr> \n";
 
