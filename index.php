@@ -1,3 +1,5 @@
+<title> Home </title>
+<body>
 <?php
 require_once('functions/general.php');
 session_start();
@@ -15,6 +17,7 @@ if (!isLogged()) {
 			statistiche bimbi->(elenco bimbi con corse con cui hanno partecipato)
 	*/
 	if ($_SESSION["isAdmin"] or $_SESSION["isTrainer"]) {
+		echo "<a href=./inserimentoCorse> Nuova corsa </a> <br>\n";
 		echo "<a href=./gestioneAnagrafiche> Gestione anagrafiche </a> <br>\n";
 		echo "<a href=./statistiche> Statistiche </a> <br>\n";
 		echo "<a href=./archivioCorse> Archivio corse </a> <br>\n";
@@ -32,7 +35,7 @@ if (!isLogged()) {
 	
 	$queryFigli = "SELECT * FROM genitore_di JOIN bimbi on (idBimboFK = idBimbo) WHERE idUserFK = $idUser";
 	$queryResultFigliHead = mysqli_query($con, $queryFigli);
-	echo "<table name=races border=1> \n";
+	echo "<table class=corsePrinc border=1> \n";
 	echo "<tr> <th>luogo</th> <th>data evento</th> <th>ora</th> <th>indirizzo</th>";
 	while ($rowFigliHead = mysqli_fetch_array($queryResultFigliHead)) {
 		$nomeFiglioHead = $rowFigliHead["nome"];
@@ -52,13 +55,14 @@ if (!isLogged()) {
 		$notePosizione = $row["notePosizione"];
 		$noteGara = $row["noteGara"];
 
-		echo "<tr> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>via $via"; 
-		if ($civico != NULL) 
-			echo ", $civico"; 
+		$stringToPrintPosizione = "via $via, $civico $provincia";
+		if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps> $stringToPrintPosizione </a>";
+		else $stringToPrintLink = $stringToPrintPosizione;
+
+		echo "<tr> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>$stringToPrintLink </td>"; 
 		//per ogni bambino di cui è genitore devo fare pulsante per iscrivere figli/o
 			//se il bambino è già iscritto non mostro un pulsante per iscriverlo ma per disiscriverlo
 		//se non è genitore non devo mostrare quel pulsante ma solo quello per vedere la lista completa degli iscritti
-		echo "</td>"; 
 
 		//showing childs' subscription buttton
 		$queryResultFigli = mysqli_query($con, $queryFigli);
@@ -112,3 +116,5 @@ if (!isLogged()) {
 }
 
 ?>
+
+</body>

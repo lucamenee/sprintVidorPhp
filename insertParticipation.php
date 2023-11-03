@@ -1,3 +1,4 @@
+<title> Inserimento partecipazione </title>
 <?php
 require_once('functions/general.php');
 session_start();
@@ -7,7 +8,6 @@ if (!isLogged() or !isset($_POST["sub"])) {
 	echo "redirectoring to login";
 	header('Location: ./login');
 } else {
-	echo "<h1>Sprint Vidor</h1>";
 
 	$idBimbo = $_POST["idBimbo"];
 	$idCorsa = $_POST["idCorsa"];

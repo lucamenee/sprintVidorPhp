@@ -28,10 +28,10 @@ function convertDataIta($originalDate) {
 function printHead() {
 	
 	echo "<head>
-	  <link href='style.css' rel='stylesheet'>
+	  <link href='/sprintVidor/style.css' rel='stylesheet'>
 	</head>";
 	
-	echo "<div class='divHead'> <img src='img/logo.png' width=120 height=120 align=right> <h1 align=center> SPRINT VIDOR </h1><h2 align=center> LA VALLATA A.S.D. </h2> </div>";
+	echo "<div class='divHead'> <h1 class=titoloDivHead> SPRINT VIDOR </h1><h2 class=titoloDivHead> LA VALLATA A.S.D. </h2> </div> <img class=logo src='/sprintVidor/img/logo.png' width=120 height=120 align=right>";
 }
 
 ?>

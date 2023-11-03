@@ -1,3 +1,4 @@
+<title> Dati corsa </title>
 <?php
 require_once('functions/general.php');
 require_once('functions/vistaCorseFunctions.php');
@@ -22,8 +23,18 @@ if ((!isLogged()  or !$_SESSION["isAdmin"] or !$_SESSION["isTrainer"]) and !isse
 	$dataEvento = convertDataIta($datiCorsa["dataEvento"]);
 	$iscrizioniAperte = $datiCorsa["dataChiusuraIscrizioni"] >= today();
 	$ora = cutSeconds($datiCorsa["ora"]);
-	
-	echo "$luogo, via $via $civico $provincia - $dataEvento, $ora <br> \n iscrizioni ";
+	$notePosizione = $datiCorsa["notePosizione"];
+	$noteGara = $datiCorsa["noteGara"];
+	$linkMaps = $datiCorsa["linkMaps"];
+
+	$stringToPrintPosizione = "$luogo, via $via, $civico $provincia";
+	if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps> $stringToPrintPosizione </a>";
+	else $stringToPrintLink = $stringToPrintPosizione;
+
+	echo "$stringToPrintLink - $dataEvento, $ora <br> \n";
+	if ($notePosizione) echo "Posizione: $notePosizione <br> \n";
+	if ($noteGara) echo "Note gara: $noteGara <br> \n";
+	echo "iscrizioni ";
 	if ($iscrizioniAperte) 
 		echo "aperte";
 	else 

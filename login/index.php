@@ -1,3 +1,4 @@
+<title> Login </title>
 <?php
 require_once('../functions/login.php');
 session_start();

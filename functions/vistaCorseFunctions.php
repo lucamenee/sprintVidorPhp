@@ -38,8 +38,8 @@ function createTableRaceKids($iscritti, $idCorsa) {
 	$modifica = (isset($_POST["postBack"]) and $_POST["postBack"] != "fine modifica");
 	$queryResultKids = mysqli_query($con, $query);
 	if (mysqli_num_rows($queryResultKids)>0) {
-		echo "<h2> $stringToPrintTitle </h2>\n";	
-		echo "<table border=1>\n";
+		echo "<h2 class=titoloH> $stringToPrintTitle </h2>\n";	
+		echo "<table class=isrizioni border=1>\n";
 		echo "<tr>";
 		if ($modifica) {
 			echo "<th></th><th></th>";
@@ -73,7 +73,7 @@ function createTableRaceKids($iscritti, $idCorsa) {
 		echo "</table> <br> \n";
 
 	} else {
-		echo "<h3> Nessun atleta $stringToPrintTitleAlt </h3>\n";
+		echo "<h3 class=titoloH> Nessun atleta $stringToPrintTitleAlt </h3>\n";
 	}
 
 }

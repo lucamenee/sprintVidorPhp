@@ -1,3 +1,4 @@
+<title> Gestione anagrafiche </title>
 <?php
 require_once('../functions/general.php');
 session_start();
@@ -7,6 +8,8 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 	echo "redirectoring to login";
 	header('Location: ./login');
 } else {
+	echo "<form action=../> <input type=submit value='← indietro'> </form>";
+
 	/*
 	allenatori:
 		inserimento bambini, genitori, legami di parentela
