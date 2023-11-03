@@ -28,7 +28,7 @@ if ((!isLogged()  or !$_SESSION["isAdmin"] or !$_SESSION["isTrainer"]) and !isse
 	$linkMaps = $datiCorsa["linkMaps"];
 
 	$stringToPrintPosizione = "$luogo, via $via, $civico $provincia";
-	if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps> $stringToPrintPosizione </a>";
+	if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps target='_blank'> $stringToPrintPosizione </a>";
 	else $stringToPrintLink = $stringToPrintPosizione;
 
 	echo "$stringToPrintLink - $dataEvento, $ora <br> \n";

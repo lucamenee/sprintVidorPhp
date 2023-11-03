@@ -56,7 +56,7 @@ if (!isLogged()) {
 		$noteGara = $row["noteGara"];
 
 		$stringToPrintPosizione = "via $via, $civico $provincia";
-		if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps> $stringToPrintPosizione </a>";
+		if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps target='_blank'> $stringToPrintPosizione </a>";
 		else $stringToPrintLink = $stringToPrintPosizione;
 
 		echo "<tr> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>$stringToPrintLink </td>"; 

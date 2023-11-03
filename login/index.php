@@ -7,12 +7,13 @@ if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"] == true)
 	header('Location: ../index.php');
 
 ?>
-
+	<br>
 	<form action=# method=POST>
 		username <input type=text name=username> <br>
 		password <input type=password name=password> <br>
 		<input type=submit name=go value=login>
 	</form>
+
 
 <?php
 if (isset($_POST["go"])) {
