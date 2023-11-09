@@ -5,11 +5,10 @@ require_once('functions/vistaCorseFunctions.php');
 session_start();
 printHead();
 
-if ((!isLogged()  or !$_SESSION["isAdmin"] or !$_SESSION["isTrainer"]) and !isset($_POST["postBack"]) and isset($_POST["sub"])) {
+if (!isLogged()  or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"]) and !isset($_POST["postBack"]) and isset($_POST["sub"])) {
 	echo "redirectoring to login";
 	header('Location: ./login');
 } else {
-	//echo "<h1>Sprint Vidor</h1>";
 	echo "<form action=./> <input type=submit value='← indietro'> </form>\n";
 	
 	$idCorsa = $_REQUEST["idCorsa"];	

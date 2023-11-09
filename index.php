@@ -16,7 +16,7 @@ if (!isLogged()) {
 	(vista archivio vecchie corse, escludi bambini da determinate corse, gestione anagrafica->(inserimento bambini e genitori, gestione relazione bimbi-genitori))
 			statistiche bimbi->(elenco bimbi con corse con cui hanno partecipato)
 	*/
-	if ($_SESSION["isTrainer"]) {
+	if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
 		if ($_SESSION["isAdmin"])
 			echo "<a href=./inserimentoCorse> Nuova corsa </a> <br>\n";
 		echo "<a href=./gestioneAnagrafiche> Gestione anagrafiche </a> <br>\n";

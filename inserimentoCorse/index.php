@@ -34,7 +34,8 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 		$idCorsa=0;
 
 	}
-	echo "\n<form action=../$pagPrec.php> <input type=submit value='← indietro'> </form>\n";
+	echo "\n<form action=../$pagPrec.php> <input type=submit value='← indietro'> <input type=hidden name=idCorsa value=$idCorsa> </form>\n";
+
 	echo "<form action=insert.php method=POST>
 		Luogo: <input type=text name=luogo  value=$luogo required> <br>
 		Data: <input type=date name=dataEvento  value=$dataEvento required> <br>

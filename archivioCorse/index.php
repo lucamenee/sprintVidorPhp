@@ -45,9 +45,9 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 			*/
 			$nPartecipanti = mysqli_num_rows(mysqli_query($con, "SELECT * FROM partecipa WHERE idCorsaFK = $idCorsa and iscritto=true and escluso=false"));
 			$indecisi = mysqli_num_rows(mysqli_query($con, "SELECT * FROM bimbi b WHERE NOT EXISTS (SELECT 1 FROM partecipa bc WHERE bc.IdBimboFK = b.IdBimbo AND bc.idCorsaFK = $idCorsa)"));
-			$nNonPartecipanti = mysqli_num_rows(mysqli_query($con, "SELECT *  FROM partecipa WHERE idCorsaFK = $idCorsa and (iscritto=false or escluso=true)"));
-
-			echo "<td> $nPartecipanti </td> <td>" . $nNonPartecipanti+$indecisi ." </td>";
+			$nNonPartecipanti = $indecisi + mysqli_num_rows(mysqli_query($con, "SELECT *  FROM partecipa WHERE idCorsaFK = $idCorsa and (iscritto=false or escluso=true)"));
+			
+			echo "<td> $nPartecipanti </td> <td> $nNonPartecipanti </td>";
 
 			echo "</tr> \n";
 		}
