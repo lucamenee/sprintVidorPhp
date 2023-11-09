@@ -7,4 +7,4 @@ L'home page ogni utente può disporre delle funzioni dedicategli, inoltre viene 
 
 
 
-L'implementazione del database è descritta nel file sprintVidor.sql. 
+L'implementazione del database è descritta nella in sql/sprintVidor.sql. 
