@@ -17,16 +17,10 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	$dataEvento = $_POST["dataEvento"];
 	$dataChiusuraIscrizioni = $_POST["dataChiusuraIscrizioni"];
 	$ora = $_POST["ora"];
-	$via = $_POST["via"];
+	$posizione = $_POST["posizione"];
 	$idCorsa = $_POST["idCorsa"];
 
 	//not required
-	if (isset($_POST["civico"]) and $_POST["civico"]) $civico = $_POST["civico"];
-	else $civico = 'NULL';
-
-	if (isset($_POST["provincia"]) and $_POST["provincia"]) $provincia = insertAst($_POST["provincia"]);
-	else $provincia = "'TV'";
-
 	if (isset($_POST["linkMaps"]) and $_POST["linkMaps"]) $linkMaps = insertAst($_POST["linkMaps"]);
 	else $linkMaps = 'NULL';
 
@@ -37,14 +31,14 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	else $noteGara = 'NULL';
 
 	if ($_POST["sub"] == "modifica") {
-		$query = "UPDATE corse SET luogo='$luogo', dataEvento='$dataEvento', dataChiusuraIscrizioni='$dataChiusuraIscrizioni', ora='$ora:00', via='$via', civico=$civico, provincia=$provincia, linkMaps=$linkMaps, notePosizione=$notePosizione, noteGara=$noteGara WHERE idCorsa=$idCorsa";
+		$query = "UPDATE corse SET luogo='$luogo', dataEvento='$dataEvento', dataChiusuraIscrizioni='$dataChiusuraIscrizioni', ora='$ora:00', posizione='$posizione', linkMaps=$linkMaps, notePosizione=$notePosizione, noteGara=$noteGara WHERE idCorsa=$idCorsa";
 	} else {
-		if (mysqli_num_rows(mysqli_query($con, "SELECT * FROM corse WHERE luogo='$luogo' and dataEvento='$dataEvento' and ora='$ora:00' and via='$via'"))) {
+		if (mysqli_num_rows(mysqli_query($con, "SELECT * FROM corse WHERE luogo='$luogo' and dataEvento='$dataEvento' and ora='$ora:00' and posizione='$posizione'"))) {
 			echo "<h2> Corsa già presente </h2>";
 			$esegui=false;
 			header("Refresh:1.5; URL= ./");
 		} else
-			$query = "INSERT INTO corse (luogo, dataEvento, dataChiusuraIscrizioni, ora, via, civico, provincia, linkMaps, notePosizione, noteGara) VALUES ('$luogo', '$dataEvento', '$dataChiusuraIscrizioni', '$ora:00', '$via', $civico, $provincia, $linkMaps, $notePosizione, $noteGara)";		
+			$query = "INSERT INTO corse (luogo, dataEvento, dataChiusuraIscrizioni, ora, posizione, linkMaps, notePosizione, noteGara) VALUES ('$luogo', '$dataEvento', '$dataChiusuraIscrizioni', '$ora:00', '$posizione', $linkMaps, $notePosizione, $noteGara)";		
 	}
 
 	if ($esegui) {

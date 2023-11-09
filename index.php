@@ -49,16 +49,13 @@ if (!isLogged()) {
 		$dataEvento =  convertDataIta($row["dataEvento"]);
 		$dataChiusuraIscrizioni = $row["dataChiusuraIscrizioni"];
 		$ora = cutSeconds($row["ora"]);
-		$via = $row["via"];
-		$civico = $row["civico"];
-		$provincia = $row["provincia"];
+		$posizione = $row["posizione"];
 		$linkMaps = $row["linkMaps"];
 		$notePosizione = $row["notePosizione"];
 		$noteGara = $row["noteGara"];
 
-		$stringToPrintPosizione = "via $via, $civico $provincia";
-		if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps target='_blank'> $stringToPrintPosizione </a>";
-		else $stringToPrintLink = $stringToPrintPosizione;
+		if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps target='_blank'> $posizione </a>";
+		else $stringToPrintLink = $posizione;
 
 		echo "<tr> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>$stringToPrintLink </td>"; 
 		//per ogni bambino di cui è genitore devo fare pulsante per iscrivere figli/o

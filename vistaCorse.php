@@ -16,9 +16,7 @@ if (!isLogged()  or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"]) and !iss
 	
 	$datiCorsa = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM corse WHERE idCorsa = $idCorsa"));
 	$luogo = $datiCorsa["luogo"];
-	$via = $datiCorsa["via"];
-	$civico = $datiCorsa["civico"];
-	$provincia = $datiCorsa["provincia"];
+	$posizione = $datiCorsa["posizione"];
 	$dataEvento = convertDataIta($datiCorsa["dataEvento"]);
 	$iscrizioniAperte = $datiCorsa["dataChiusuraIscrizioni"] >= today();
 	$ora = cutSeconds($datiCorsa["ora"]);
@@ -26,7 +24,7 @@ if (!isLogged()  or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"]) and !iss
 	$noteGara = $datiCorsa["noteGara"];
 	$linkMaps = $datiCorsa["linkMaps"];
 
-	$stringToPrintPosizione = "$luogo, via $via, $civico $provincia";
+	$stringToPrintPosizione = "$luogo, $posizione";
 	if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps target='_blank'> $stringToPrintPosizione </a>";
 	else $stringToPrintLink = $stringToPrintPosizione;
 

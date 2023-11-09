@@ -29,14 +29,11 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 			$luogo = $row["luogo"];
 			$dataEvento =  convertDataIta($row["dataEvento"]);
 			$ora = cutSeconds($row["ora"]);
-			$via = $row["via"];
-			$civico = $row["civico"];
-			$provincia = $row["provincia"];
+			$posizione = $row["posizione"];
 			$linkMaps = $row["linkMaps"];
 
-			$stringToPrintPosizione = "via $via, $civico $provincia";
-			if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps> $stringToPrintPosizione </a>";
-			else $stringToPrintLink = $stringToPrintPosizione;
+			if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps> $posizione </a>";
+			else $stringToPrintLink = $posizione;
 
 			echo "<tr> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>$stringToPrintLink </td>"; 
 
