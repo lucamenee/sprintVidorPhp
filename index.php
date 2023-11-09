@@ -16,8 +16,9 @@ if (!isLogged()) {
 	(vista archivio vecchie corse, escludi bambini da determinate corse, gestione anagrafica->(inserimento bambini e genitori, gestione relazione bimbi-genitori))
 			statistiche bimbi->(elenco bimbi con corse con cui hanno partecipato)
 	*/
-	if ($_SESSION["isAdmin"] or $_SESSION["isTrainer"]) {
-		echo "<a href=./inserimentoCorse> Nuova corsa </a> <br>\n";
+	if ($_SESSION["isTrainer"]) {
+		if ($_SESSION["isAdmin"])
+			echo "<a href=./inserimentoCorse> Nuova corsa </a> <br>\n";
 		echo "<a href=./gestioneAnagrafiche> Gestione anagrafiche </a> <br>\n";
 		echo "<a href=./statistiche> Statistiche </a> <br>\n";
 		echo "<a href=./archivioCorse> Archivio corse </a> <br>\n";
@@ -70,22 +71,24 @@ if (!isLogged()) {
 			$nomeFiglio = $rowFigli["nome"];
 			$idFiglio = $rowFigli["IdBimbo"];
 
-			$queryResultParticipation = mysqli_query($con, "SELECT * FROM partecipa WHERE idCorsaFK = $idCorsa AND idBimboFK = $idFiglio AND iscritto = true");
+			$queryResultParticipation = mysqli_query($con, "SELECT * FROM partecipa WHERE idCorsaFK = $idCorsa AND idBimboFK = $idFiglio");
+			$stringToInsert = "iscrivi";
+			$iscrizione = false;
+			$iscritto = "non iscritto";
+			$escluso = false;
 			if (mysqli_num_rows($queryResultParticipation)>0) {
-				$stringToInsert = "disiscrivi";
-				$iscrizione = true;
-				$iscritto = "iscritto";
-			} else {
-				$stringToInsert = "iscrivi";
-				$iscrizione = false;
-				$iscritto = "non iscritto";
+				$resultParticipation = mysqli_fetch_array($queryResultParticipation);
+				//checking if the kid is allowed to participate to that race
+				if ($resultParticipation["escluso"]) {
+					$iscritto = "escluso";
+					$escluso = true;
+				} else if ($resultParticipation["iscritto"]){
+					$stringToInsert = "disiscrivi";
+					$iscrizione = true;
+					$iscritto = "iscritto";
+				}
 			}
-
-			//checking if the kid is allowed to participate to that race
-			$queryResultEscluso = mysqli_query($con, "SELECT * FROM partecipa WHERE idCorsaFK = $idCorsa AND idBimboFK = $idFiglio AND escluso = true");
-			if (mysqli_num_rows($queryResultEscluso)>0)  $escluso = true;
-			else $escluso = false;
-
+			
 			//bottone iscrizione bloccato se iscrizioni per quella corsa sono già terminate e mostra solo una scritta 
 			if ($dataChiusuraIscrizioni < today()) { //iscrizioni terminate
 				echo "<td> <i>$iscritto</i></td>";

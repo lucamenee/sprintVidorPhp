@@ -16,7 +16,7 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 
 
 ?>	
-<!-- eventuale implemetazione di più sttistiche
+<!-- eventuale implemetazione di più statistiche
 <form action=# method="POST">
 	<select name="stat">
 		<option value="v1">v1</option>

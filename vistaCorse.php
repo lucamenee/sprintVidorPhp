@@ -10,9 +10,9 @@ if ((!isLogged()  or !$_SESSION["isAdmin"] or !$_SESSION["isTrainer"]) and !isse
 	header('Location: ./login');
 } else {
 	//echo "<h1>Sprint Vidor</h1>";
-	echo "<form action=./> <input type=submit value='← indietro'> </form>";
-
-	$idCorsa = $_REQUEST["idCorsa"];
+	echo "<form action=./> <input type=submit value='← indietro'> </form>\n";
+	
+	$idCorsa = $_REQUEST["idCorsa"];	
 	$con = connection();
 	
 	$datiCorsa = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM corse WHERE idCorsa = $idCorsa"));
@@ -39,6 +39,12 @@ if ((!isLogged()  or !$_SESSION["isAdmin"] or !$_SESSION["isTrainer"]) and !isse
 		echo "aperte";
 	else 
 		echo "chiuse";
+
+	echo "<form action=./inserimentoCorse method=GET> 
+		<input type=hidden name=idCorsa value=$idCorsa>		
+		<input type=submit name=subMod value='modifica dati gara'> 
+		</form>\n";
+
 	
 	if (isset($_POST["postBack"]) and $_POST["postBack"] != "fine modifica") 
 		$valueModifica = "fine modifica";

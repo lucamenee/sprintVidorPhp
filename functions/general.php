@@ -1,4 +1,5 @@
 <?php
+$path = "/sprintVidor";
 
 function connection() {
 	return mysqli_connect('localhost', 'root', '', 'sprintVidor');
@@ -26,12 +27,21 @@ function convertDataIta($originalDate) {
 }
 
 function printHead() {
+	global $path;
 	
 	echo "<head>
-	  <link href='/sprintVidor/style.css' rel='stylesheet'>
+	  <link href='$path/style.css' rel='stylesheet'>
 	</head>";
 	
-	echo "<div class='divHead'> <h1 class=titoloDivHead> SPRINT VIDOR </h1><h2 class=titoloDivHead> LA VALLATA A.S.D. </h2> </div> <img class=logo src='/sprintVidor/img/logo.png' width=120 height=120 align=right>";
+	echo "<div style='cursor: pointer;' onclick=\"window.location='$path'\";' class='divHead'> 
+			<h1 class=titoloDivHead> SPRINT VIDOR </h1>
+			<h2 class=titoloDivHead> LA VALLATA A.S.D. </h2> 
+		</div> 
+		<img class=logo src='$path/img/logo.png' width=120 height=120 align=right>";
+}
+
+function insertAst($input) {
+	return "'" . $input . "'";
 }
 
 ?>
