@@ -33,7 +33,7 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	if ($_POST["sub"] == "modifica") {
 		$query = "UPDATE corse SET luogo='$luogo', dataEvento='$dataEvento', dataChiusuraIscrizioni='$dataChiusuraIscrizioni', ora='$ora:00', posizione='$posizione', linkMaps=$linkMaps, notePosizione=$notePosizione, noteGara=$noteGara WHERE idCorsa=$idCorsa";
 	} else {
-		if (mysqli_num_rows(mysqli_query($con, "SELECT * FROM corse WHERE luogo='$luogo' and dataEvento='$dataEvento' and ora='$ora:00' and posizione='$posizione'"))) {
+		if (mysqli_num_rows(mysqli_query($con, "SELECT * FROM corse WHERE luogo='$luogo' and dataEvento='$dataEvento' and ora='$ora:00'"))) {
 			echo "<h2> Corsa già presente </h2>";
 			$esegui=false;
 			header("Refresh:1.5; URL= ./");

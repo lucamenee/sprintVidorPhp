@@ -23,29 +23,32 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 		$notePosizione = $result["notePosizione"];
 		$noteGara = $result["noteGara"];
 
-		$go = "modifica";
+		$go = "Modifica";
 	} else {
 		$pagPrec = "index";
 		$luogo = $ora = $dataEvento = $dataChiusuraIscrizioni = $posizione = $linkMaps = $notePosizione = $noteGara = "''";
 
-		$go = "inserisci";
+		$go = "Inserisci";
 		$idCorsa=0;
 
 	}
 	echo "\n<form action=../$pagPrec.php> <input type=submit value='← indietro'> <input type=hidden name=idCorsa value=$idCorsa> </form>\n";
 
-	echo "<form action=insert.php method=POST>
-		Luogo: <input type=text name=luogo  value='$luogo' required> <br>
-		Data: <input type=date name=dataEvento  value=$dataEvento required> <br>
-		Chiusura iscrizioni: <input type=date name=dataChiusuraIscrizioni  value=$dataChiusuraIscrizioni required> <br>
-		Ora: <input type=time name=ora  value=$ora required> <br>
-		Ritrovo gara: <input type=text name=via  value='$posizione' required> <br>
-		Link maps: <input type=text name=linkMaps value='$linkMaps' > <br>
-		Note sulla posizione: <input type=text name=notePosizione value='$notePosizione' > <br>
-		Note sulla gara: <input type=text name=noteGara value='$noteGara' > <br>
-		<input type=hidden name=idCorsa value=$idCorsa>
-		<input type=submit name=sub value=$go>
-	</form> \n";
+	echo "Campi obbligatori <br> \n";
+	echo "<div class='formInserimento'>
+		<form action=insert.php method=POST>
+			<br> <br> Località* <br><input type=text name=luogo  value='$luogo' placeholder=Località required><br>
+			<br> <br> Data*<br><input type=date name=dataEvento  value=$dataEvento required> <br>
+			<br> <br> <img src=../img/iconsCalendario.png class=iconIns> Chiusura iscrizioni* <br><input type=date name=dataChiusuraIscrizioni  value=$dataChiusuraIscrizioni required> <br>
+			<br> <br> Ora* <br><input type=time name=ora  value=$ora required> <br>
+			<br> <br> <img src=../img/iconsPosizione.png class=iconIns> Ritrovo gara* <br><input type=text name=posizione  value='$posizione' placeholder='Via, civico provincia' required> <br>
+			<br> <br> <img src=../img/iconsLink.png class=iconIns> Link maps <br><input type=text name=linkMaps value='$linkMaps' placeholder='Link maps'> <br>
+			<br> <br> Note sulla posizione <br><input type=text name=notePosizione value='$notePosizione' placeholder='Note sulla posizione'> <br>
+			<br> <br> <img src=../img/iconsNotes.png class=iconIns> Note sulla gara <br><input type=text name=noteGara value='$noteGara' placeholder='Note sulla gara'> <br>
+			<input type=hidden name=idCorsa value=$idCorsa> <br> <br>
+			<input type=submit name=sub value=$go>
+		</form> 
+	</div> \n";
 
 }
 ?>
