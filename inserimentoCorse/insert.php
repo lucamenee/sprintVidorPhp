@@ -30,9 +30,11 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	if (isset($_POST["noteGara"]) and $_POST["noteGara"]) $noteGara = insertAst($_POST["noteGara"]);
 	else $noteGara = 'NULL';
 
-	if ($_POST["sub"] == "modifica") {
+	if ($_POST["sub"] == "Modifica") {
+		$stringToInsertConferma="Modifica confermata";
 		$query = "UPDATE corse SET luogo='$luogo', dataEvento='$dataEvento', dataChiusuraIscrizioni='$dataChiusuraIscrizioni', ora='$ora:00', posizione='$posizione', linkMaps=$linkMaps, notePosizione=$notePosizione, noteGara=$noteGara WHERE idCorsa=$idCorsa";
 	} else {
+		$stringToInsertConferma="Inserimento confermato";
 		if (mysqli_num_rows(mysqli_query($con, "SELECT * FROM corse WHERE luogo='$luogo' and dataEvento='$dataEvento' and ora='$ora:00'"))) {
 			echo "<h2> Corsa già presente </h2>";
 			$esegui=false;
@@ -43,10 +45,10 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 
 	if ($esegui) {
 		if (mysqli_query($con, $query)) {
-			echo "<h2> Inserimento confermato </h2>";
+			echo "<h2> $stringToInsertConferma </h2>";
 			header("Refresh:1.5; URL= ../");
 		} else {
-			echo "<h2> Inserimento non avvenuto correttamente </h2>";
+			echo "<h2> Update non avvenuto correttamente </h2>";
 			header("Refresh:1.5; URL= ./");
 		}
 	}

@@ -6,7 +6,7 @@ printHead();
 
 if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 	echo "redirectoring to login";
-	header('Location: ./login');
+	header('Location: ../login');
 } else {
 	echo "<form action=../> <input type=submit value='← indietro'> </form>";
 
@@ -16,14 +16,15 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 	admin:
 		+gestione dei ruoli, inserimento admin e allenatori, eliminazione
 	*/
-	echo "<a href=./inserimentoBambini.php> Inserimento bambini </a> <br>\n";
-	echo "<a href=./inserimentoGenitori.php> Inserimento genitori </a> <br>\n";
-	echo "<a href=./inserimentoLegamiParentela.php> Inserimento legami di parentela </a> <br> <br>\n";
+
+	//da queste due pagine si possono creare i legami di parentela
+	echo "<a href=./atleti.php> Gestione atleti </a> <br>\n";
+	echo "<a href=./utenti.php> Gestione utenti </a> <br> <br> \n"; //se è admin può inserire allenatori e altri admin tramite checkbox
+	//echo "<a href=./inserimentoLegamiParentela.php> Inserimento legami di parentela </a> <br> <br>\n";
 
 	if ($_SESSION["isAdmin"]) {
 		echo "<a href=./gestioneRuoli.php> Gestione ruoli </a> <br>\n";
-		echo "<a href=./inserimentoAdvanced.php> Inserimento allenatori/admin </a> <br>\n";
-		echo "<a href=./eliminaBambini.php> Elimina bambini </a> <br>\n";	
+		echo "<a href=./eliminaAtleti.php> Elimina atleti </a> <br>\n";	
 	}
 
 

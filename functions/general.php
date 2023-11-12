@@ -34,14 +34,23 @@ function printHead() {
 	</head>";
 	
 	echo "<div style='cursor: pointer;' onclick=\"window.location='$path'\";' class='divHead'> 
-			<h1 class=titoloDivHead> SPRINT VIDOR </h1>
-			<h2 class=titoloDivHead> LA VALLATA A.S.D. </h2> 
+			<h1> SPRINT VIDOR </h1>
+			<h2> LA VALLATA A.S.D. </h2> 
 		</div> 
 		<img class=logo src='$path/img/logo.png' width=120 height=120 align=right>";
 }
 
 function insertAst($input) {
 	return "'" . $input . "'";
+}
+
+function is_in($ar, $el) {
+	foreach ($ar as $v) {
+		if ($v == $el)
+			return true;
+	}
+
+	return false;
 }
 
 ?>
