@@ -17,15 +17,21 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 		+gestione dei ruoli, inserimento admin e allenatori, eliminazione
 	*/
 
-	//da queste due pagine si possono creare i legami di parentela
-	echo "<a href=./atleti.php> Gestione atleti </a> <br>\n";
-	echo "<a href=./utenti.php> Gestione utenti </a> <br> <br> \n"; //se è admin può inserire allenatori e altri admin tramite checkbox
-	//echo "<a href=./inserimentoLegamiParentela.php> Inserimento legami di parentela </a> <br> <br>\n";
+	
+	echo "<a href=./atleti.php> Gestione atleti </a> <br> <br>\n";
+	
 
 	if ($_SESSION["isAdmin"]) {
-		echo "<a href=./gestioneRuoli.php> Gestione ruoli </a> <br>\n";
+		//echo "<a href=./inserimentoLegamiParentela.php> Inserimento legami di parentela </a> <br>\n";
+		echo "<a href=./utenti.php> Gestione utenti </a> <br> \n";
 		echo "<a href=./eliminaAtleti.php> Elimina atleti </a> <br>\n";	
 	}
+
+	/*
+	decidi implementazione legami parentala:
+	- da pagina a parte;
+	- sfrutta pagina utenti / pagina bambini
+	*/
 
 
 
