@@ -24,7 +24,8 @@ if (!isLogged()) {
 		echo "<a href=./archivioCorse> Archivio corse </a> <br>\n";
 	}
 
-	printLogout(); /* impagina meglio, metti in barra funzioni per allenatori o in alto a destra per genitori*/
+	echo "<form action='./logout'> \n <input type=submit value=logout> \n </form>"; 
+	echo "<form action='./updatepsw'> \n <input type=submit value='cambia password'> \n </form>";
 
 	$idUser = $_SESSION["idUser"];
 	//showing upcoming races and:
@@ -32,7 +33,7 @@ if (!isLogged()) {
 	// -for trainers: clicking a button u can see what kids will and will not participate 
 	$today = today();
 	$con = connection();
-	$queryResultCorse = mysqli_query($con, "SELECT * FROM corse where dataEvento >= $today ORDER BY dataEvento");
+	$queryResultCorse = mysqli_query($con, "SELECT * FROM corse WHERE dataEvento >= '$today' ORDER BY dataEvento");
 	
 	$queryFigli = "SELECT * FROM genitore_di JOIN bimbi on (idBimboFK = idBimbo) WHERE idUserFK = $idUser";
 	$queryResultFigliHead = mysqli_query($con, $queryFigli);

@@ -12,7 +12,6 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	$con = connection();
 	$queryResultRouli = mysqli_query($con, "SELECT * FROM rouli");
 
-
 	//creazione form inserimento/modifica
 	/* cambia campi*/
 	
@@ -51,7 +50,7 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	echo "<td> <input type=checkbox name=all $isAll> </td>";
 	echo "<td> <input type=checkbox name=adm $isAdm> </td>";
 
-	echo "<td> <input type=hidden name=IdUtente value=$IdUser> <input type=submit name=ins value='$stringToInsertSub'> </td> </tr> </form>\n  <tr></tr><tr></tr><tr></tr>";
+	echo "<td> <input type=hidden name=IdUtente value=$IdUser> <input type=submit name=ins value='$stringToInsertSub'> </td> </tr> </form>\n  <tr></tr><tr></tr><tr></tr>\n";
 
 
 
@@ -80,9 +79,11 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 		echo "<td> <input type=checkbox name=admPost value=1 $admR onclick='return false;'> </td>";
 
 		echo "<td> <input type=hidden name=IdUserPost value=$IdUser> <input type=submit name=postBack value=modifica> </td>";
-		echo "</form> </tr>";
+		echo "</form> </tr>\n";
 	}
 
-	echo "</table>";
+	echo "</table>\n";
+
+	echo "<br><br>*i nuovi utenti potranno accedere senza password, si consiglia di impostarne una dopo aver eseguito il primo accesso";
 }
 ?>

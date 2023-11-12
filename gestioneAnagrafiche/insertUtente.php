@@ -30,15 +30,19 @@ if (!isLogged() or !$_SESSION["isAdmin"] or !isset($_POST["ins"])) {
 	if ($modifica) {
 		$IdUser = $_POST["IdUtente"];
 		$query = "UPDATE utenti SET nome='$nome', cognome='$cognome', username='$username' WHERE IdUser=$IdUser";
+		$stringToInsertConferma = "Update";
 	} else {
-		$query = "INSERT INTO bimbi (nome, cognome, username, password) VALUES ('$nome', '$cognome', '$username', '')";
-		$IdUser = (mysqli_fetch_array(mysqli_query($con, "SELECT IdUser FROM utenti WHERE nome='$nome', cognome='$cognome', username='$username'")))["IdUser"];
+		$query = "INSERT INTO utenti (nome, cognome, username, password) VALUES ('$nome', '$cognome', '$username', '')";
+		
+		$stringToInsertConferma = "Inserimento";
 	}
 
 	if (mysqli_query($con, $query)) {
-		echo "<h1> Inserimento avvenuto con successo </h1>";
+		$riga = mysqli_fetch_array(mysqli_query($con, "SELECT IdUser FROM utenti WHERE Nome='$nome' AND Cognome='$cognome' AND Username='$username'"));
+		$IdUser = $riga["IdUser"];
+		echo "<h1> $stringToInsertConferma avvenuto con successo </h1>";
 	} else {
-		echo "<h1> Errore nell'inserimento </h1>";
+		echo "<h1> Errore nel $stringToInsertConferma </h1>";
 	}
 
 	if (!(isset($_POST["IdUtente"]) and $_POST["IdUtente"]==$_SESSION["idUser"])) {
@@ -64,6 +68,8 @@ if (!isLogged() or !$_SESSION["isAdmin"] or !isset($_POST["ins"])) {
 		}
 
 		echo "<h1> Ruoli aggiornati </h1>";
+	} else {
+		echo "<br> <h3> Ricordati che non puoi mdicare i tuoi ruoli </h3>";
 	}
 	
 	header("Refresh:1.5; URL= utenti.php");	

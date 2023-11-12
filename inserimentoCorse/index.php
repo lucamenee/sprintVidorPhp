@@ -34,10 +34,9 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	}
 	echo "\n<form action=../$pagPrec.php> <input type=submit value='← indietro'> <input type=hidden name=idCorsa value=$idCorsa> </form>\n";
 
-	echo "Campi obbligatori <br> \n";
 	echo "<div class='formInserimento'>
 		<form action=insert.php method=POST>
-			<br> <br> Località* <br><input type=text name=luogo  value='$luogo' placeholder=Località required><br>
+			<br> Località* <br><input type=text name=luogo  value='$luogo' placeholder=Località required><br>
 			<br> <br> Data*<br><input type=date name=dataEvento  value=$dataEvento required> <br>
 			<br> <br> <img src=../img/iconsCalendario.png class=iconIns> Chiusura iscrizioni* <br><input type=date name=dataChiusuraIscrizioni  value=$dataChiusuraIscrizioni required> <br>
 			<br> <br> Ora* <br><input type=time name=ora  value=$ora required> <br>
@@ -49,6 +48,8 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 			<input type=submit name=sub value=$go>
 		</form> 
 	</div> \n";
+
+	echo "<i>*Campi obbligatori </i> \n";
 
 }
 ?>

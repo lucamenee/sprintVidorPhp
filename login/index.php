@@ -8,11 +8,18 @@ if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"] == true)
 
 ?>
 	<br>
-	<form action=# method=POST>
-		username <input type=text name=username> <br>
-		password <input type=password name=password> <br>
-		<input type=submit name=go value=login>
-	</form>
+	<div style="float:left;width:200px;text-align:right;">
+		Username:<br>
+		Password:<br>
+	</div>
+
+	<div style="margin-left:215px">
+		<form action=# method=POST>
+			<input type=text name=username> <br>
+			<input type=password name=password> <br> <br>
+			<input type=submit name=go value=login>
+		</form>
+	</div>
 
 
 <?php

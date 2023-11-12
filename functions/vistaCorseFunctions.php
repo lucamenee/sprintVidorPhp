@@ -23,15 +23,15 @@ function createTableRaceKids($iscritti, $idCorsa) {
 			$stringToPrintTitle = "Non iscritti";
 			$stringToPrintTitleAlt = "non iscritto";
 		}
-		$query = "SELECT * FROM partecipa JOIN bimbi ON (idBimboFK = idBimbo) JOIN categorie ON (idCatFK = idCat) WHERE idCorsaFK=$idCorsa AND iscritto=$iscritti AND escluso=false";
+		$query = "SELECT * FROM partecipa JOIN bimbi ON (idBimboFK = idBimbo) JOIN categorie ON (idCatFK = idCat) WHERE idCorsaFK=$idCorsa AND iscritto=$iscritti AND escluso=false ORDER BY Descrizione, cognome, nome";
 	} else if ($iscritti == -1) {
 		$stringToPrintTitle = "Scelta non effettuata";	
 		$stringToPrintTitleAlt = "con scelta non effettuata";
-		$query = "SELECT b.*, c.* FROM bimbi b JOIN categorie c ON (idCatFK = idCat) WHERE NOT EXISTS (SELECT 1 FROM partecipa p WHERE p.idBimboFK = b.idBimbo AND idCorsaFK=$idCorsa)";
+		$query = "SELECT b.*, c.* FROM bimbi b JOIN categorie c ON (idCatFK = idCat) WHERE NOT EXISTS (SELECT 1 FROM partecipa p WHERE p.idBimboFK = b.idBimbo AND idCorsaFK=$idCorsa) ORDER BY c.Descrizione, b.cognome, b.nome";
 	} else {
 		$stringToPrintTitle = "Esclusi";	
 		$stringToPrintTitleAlt = "escluso";
-		$query = "SELECT * FROM partecipa JOIN bimbi ON (idBimboFK = idBimbo) JOIN categorie ON (idCatFK = idCat) WHERE idCorsaFK=$idCorsa AND escluso=true";
+		$query = "SELECT * FROM partecipa JOIN bimbi ON (idBimboFK = idBimbo) JOIN categorie ON (idCatFK = idCat) WHERE idCorsaFK=$idCorsa AND escluso=true ORDER BY Descrizione, cognome, nome";
 		$stringToPrintEscludi = "rimuovi esclusione";
 	}
 
@@ -44,7 +44,7 @@ function createTableRaceKids($iscritti, $idCorsa) {
 		if ($modifica) {
 			echo "<th></th><th></th>";
 		}
-		echo "<th>Nome</th> <th>Cognome</th> <th>Data di nascita</th> <th>Categoria</th> </tr>\n";
+		echo "<th>Cognome</th> <th>Nome</th> <th>Data di nascita</th> <th>Categoria</th> </tr>\n";
 		while ($row = mysqli_fetch_array($queryResultKids)) {
 			$id = $row["IdBimbo"];
 			$nome = $row["nome"];
@@ -67,7 +67,7 @@ function createTableRaceKids($iscritti, $idCorsa) {
 					echo "</td></form>";
 				}
 			}
-			echo "<td> $nome </td> <td> $cognome </td> <td> $dataNascita </td> <td> $categoria </td> </tr> \n";
+			echo "<td> $cognome </td> <td> $nome </td> <td> $dataNascita </td> <td> $categoria </td> </tr> \n";
 
 		}
 		echo "</table> <br> \n";
