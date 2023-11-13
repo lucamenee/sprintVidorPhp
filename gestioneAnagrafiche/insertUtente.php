@@ -93,7 +93,7 @@ if (!isLogged() or !$_SESSION["isAdmin"] or !isset($_POST["ins"])) {
 		}
 
 		echo "<h1> Aggiugni figli </h1>\n";	
-		$querySearchNonFigli = "SELECT * FROM genitore_di JOIN bimbi ON (idBimboFk = IdBimbo) JOIN categorie ON (idCatFk = idCat) WHERE idBimboFK NOT IN (SELECT idBimboFK FROM genitore_di WHERE IdUserFK=$IdUser)";
+		$querySearchNonFigli = "SELECT * FROM bimbi JOIN categorie ON (idCatFk = idCat) WHERE idBimbo NOT IN (SELECT idBimboFK FROM genitore_di WHERE IdUserFK=$IdUser)";
 		$resultSearchNonFigli = mysqli_query($con, $querySearchNonFigli);
 		echo "<table border=1>\n";
 		echo "<tr> <th> Nome </th> <th> Cognome </th> <th> Data di nascita </th> <th> Categoria </th> <th> </th> </tr>\n";

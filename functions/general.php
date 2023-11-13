@@ -27,13 +27,15 @@ function printHead() {
 	
 	echo "<head>
 	  <link href='$path/style.css' rel='stylesheet'>
+	  <script src='$path/functions/general.js'></script>
 	</head>";
 	
 	echo "<div style='cursor: pointer;' onclick=\"window.location='$path'\";' class='divHead'> 
 			<h1> SPRINT VIDOR </h1>
 			<h2> LA VALLATA A.S.D. </h2> 
-		</div> 
-		<img class=logo src='$path/img/logo.png' width=120 height=120 align=right>";
+		</div>\n 
+		<img class=logo id=logo src='$path/img/logoAlt.jpg' width=120 height=120 align=right>\n";
+	echo "<div class='toolbar' id='toolbar'> <div> TOOLBAR </div> <div> TOOLBAR </div> </div>";
 }
 
 function insertAst($input) {
