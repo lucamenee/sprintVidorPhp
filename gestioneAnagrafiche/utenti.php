@@ -43,7 +43,7 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	}
 
 	echo "<form action=# method=POST> <input type=submit value=clear> </form>";
-	echo "<table border=1> \n <tr> <th> Nome </th> <th> Cognome </th> <th> Username </th> <th> Genitore </th> <th> Allenatore </th> <th> Admin </th> <th> </th> </tr> \n";
+	echo "<table border=1> \n <tr> <th> Nome </th> <th> Cognome </th> <th> Username* </th> <th> Genitore </th> <th> Allenatore </th> <th> Admin </th> <th> </th> </tr> \n";
 	echo "<form action=insertUtente.php method=POST> \n <tr> <td> <input type=text name=nome value='$nomePost' required> </td> <td> <input type=text name=cognome value='$cognomePost' required> </td> <td> <input type=text name=username value='$usernamePost' required> </td> \n"; 
 	//combobox rouli
 	echo "<td> <input type=checkbox name=gen $isGen> </td>";
@@ -84,6 +84,9 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 
 	echo "</table>\n";
 
-	echo "<br><br>*i nuovi utenti potranno accedere senza password, si consiglia di impostarne una dopo aver eseguito il primo accesso";
+	echo "<br><br>*l'username deve essere unico per ogni utente e di una lunghezza massima di 25 caratteri";
+	echo "<br>**i nuovi utenti potranno accedere senza password, si consiglia di impostarne una dopo aver eseguito il primo accesso";
+
+
 }
 ?>
