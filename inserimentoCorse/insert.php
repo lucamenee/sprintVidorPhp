@@ -32,7 +32,7 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 
 	if ($_POST["sub"] == "Modifica") {
 		$stringToInsertConferma="Modifica confermata";
-		$query = "UPDATE corse SET luogo='$luogo', dataEvento='$dataEvento', dataChiusuraIscrizioni='$dataChiusuraIscrizioni', ora='$ora:00', posizione='$posizione', linkMaps=$linkMaps, notePosizione=$notePosizione, noteGara=$noteGara WHERE idCorsa=$idCorsa";
+		$query = "UPDATE corse SET luogo='$luogo', dataEvento='$dataEvento', dataChiusuraIscrizioni='$dataChiusuraIscrizioni', ora='$ora', posizione='$posizione', linkMaps=$linkMaps, notePosizione=$notePosizione, noteGara=$noteGara WHERE idCorsa=$idCorsa";
 	} else {
 		$stringToInsertConferma="Inserimento confermato";
 		if (mysqli_num_rows(mysqli_query($con, "SELECT * FROM corse WHERE luogo='$luogo' and dataEvento='$dataEvento' and ora='$ora:00'"))) {

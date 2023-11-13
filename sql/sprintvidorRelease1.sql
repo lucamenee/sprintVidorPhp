@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Nov 09, 2023 alle 17:15
+-- Creato il: Nov 13, 2023 alle 09:52
 -- Versione del server: 10.4.21-MariaDB
 -- Versione PHP: 8.0.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sprintvidor`
+-- Database: `my_iscrizionigiovanissimi`
 --
 
 -- --------------------------------------------------------
@@ -34,15 +34,6 @@ CREATE TABLE `bimbi` (
   `dataNascita` date DEFAULT NULL,
   `idCatFK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `bimbi`
---
-
-INSERT INTO `bimbi` (`IdBimbo`, `nome`, `cognome`, `dataNascita`, `idCatFK`) VALUES
-(1, 'kidName', 'kidSurname', '2014-10-01', 1),
-(2, 'kidName2', 'kidSurname2', '2017-10-17', 2),
-(3, 'kidName3', 'kidSurname3', '2014-10-10', 3);
 
 -- --------------------------------------------------------
 
@@ -86,16 +77,6 @@ CREATE TABLE `corse` (
   `noteGara` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dump dei dati per la tabella `corse`
---
-
-INSERT INTO `corse` (`idCorsa`, `luogo`, `ora`, `dataEvento`, `dataChiusuraIscrizioni`, `posizione`, `linkMaps`, `notePosizione`, `noteGara`) VALUES
-(1, 'Sernaglia', '09:00:00', '2023-11-10', '2023-11-08', 'Via Vittoria, 10 TV', NULL, NULL, NULL),
-(2, 'Paese', '08:15:00', '2023-11-18', '2023-11-15', 'Via Scommesse', NULL, NULL, NULL),
-(3, 'Trevignano', '07:30:00', '2023-12-19', '2023-12-01', 'Via Ugo Foscolo', NULL, 'campagna', 'attenti a macchia '),
-(6, 'aa', '11:12:00', '1212-12-12', '1212-12-12', 'Vicolo 66', 'https://maps.app.goo.gl/5HfMn46XgSYtCHtCA', NULL, 'gara');
-
 -- --------------------------------------------------------
 
 --
@@ -107,16 +88,6 @@ CREATE TABLE `genitore_di` (
   `idBimboFK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dump dei dati per la tabella `genitore_di`
---
-
-INSERT INTO `genitore_di` (`IdUserFK`, `idBimboFK`) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(2, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -126,14 +97,6 @@ INSERT INTO `genitore_di` (`IdUserFK`, `idBimboFK`) VALUES
 CREATE TABLE `genitori` (
   `IdUserFK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `genitori`
---
-
-INSERT INTO `genitori` (`IdUserFK`) VALUES
-(1),
-(2);
 
 -- --------------------------------------------------------
 
@@ -148,22 +111,6 @@ CREATE TABLE `partecipa` (
   `escluso` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dump dei dati per la tabella `partecipa`
---
-
-INSERT INTO `partecipa` (`IdBimboFK`, `IdCorsaFK`, `iscritto`, `escluso`) VALUES
-(1, 1, 1, 0),
-(1, 2, 1, 0),
-(1, 3, 0, 0),
-(2, 1, 1, 0),
-(2, 2, 1, 0),
-(2, 3, 1, 0),
-(2, 6, 1, 0),
-(3, 1, 1, 0),
-(3, 2, 1, 0),
-(3, 6, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -174,16 +121,6 @@ CREATE TABLE `rigaruoli` (
   `IdUserFK` int(11) NOT NULL,
   `IdRuoloFK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `rigaruoli`
---
-
-INSERT INTO `rigaruoli` (`IdUserFK`, `IdRuoloFK`) VALUES
-(1, 0),
-(1, 1),
-(1, 2),
-(2, 2);
 
 -- --------------------------------------------------------
 
@@ -215,17 +152,9 @@ CREATE TABLE `utenti` (
   `IdUser` int(11) NOT NULL,
   `Nome` text NOT NULL,
   `Cognome` text NOT NULL,
-  `Username` text NOT NULL,
+  `Username` varchar(25) NOT NULL,
   `Password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `utenti`
---
-
-INSERT INTO `utenti` (`IdUser`, `Nome`, `Cognome`, `Username`, `Password`) VALUES
-(1, 'testName', 'testSurname', 'prova', 'prova'),
-(2, 'testNameParent', 'testSurnameParent', 'provaParent', 'provaParent');
 
 --
 -- Indici per le tabelle scaricate
@@ -291,7 +220,9 @@ ALTER TABLE `rouli`
 -- Indici per le tabelle `utenti`
 --
 ALTER TABLE `utenti`
-  ADD PRIMARY KEY (`IdUser`);
+  ADD PRIMARY KEY (`IdUser`),
+  ADD UNIQUE KEY `Username` (`Username`),
+  ADD UNIQUE KEY `Username_2` (`Username`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -301,7 +232,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `bimbi`
 --
 ALTER TABLE `bimbi`
-  MODIFY `IdBimbo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdBimbo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `categorie`
@@ -313,7 +244,7 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT per la tabella `corse`
 --
 ALTER TABLE `corse`
-  MODIFY `idCorsa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idCorsa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `rouli`
@@ -325,7 +256,7 @@ ALTER TABLE `rouli`
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Limiti per le tabelle scaricate

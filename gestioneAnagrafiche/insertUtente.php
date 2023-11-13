@@ -48,9 +48,9 @@ if (!isLogged() or !$_SESSION["isAdmin"] or !isset($_POST["ins"])) {
 	//admin
 	if (!(isset($_POST["IdUtente"]) and $_POST["IdUtente"]==$_SESSION["idUser"])) {	
 		if ($adm) {
-			mysqli_query($con, "INSERT INTO rigaRuoli (IdUserFK, IdRuoloFK) VALUES ($IdUser, 0)");
+			mysqli_query($con, "INSERT INTO rigaruoli (IdUserFK, IdRuoloFK) VALUES ($IdUser, 0)");
 		} else {
-			mysqli_query($con, "DELETE FROM rigaRuoli WHERE IdUserFK=$IdUser AND IdRuoloFK=0");
+			mysqli_query($con, "DELETE FROM rigaruoli WHERE IdUserFK=$IdUser AND IdRuoloFK=0");
 		}
 		$stringToPrintEnd = "";
 	} else {
@@ -59,16 +59,16 @@ if (!isLogged() or !$_SESSION["isAdmin"] or !isset($_POST["ins"])) {
 
 	//allenatore
 	if ($all) {
-		mysqli_query($con, "INSERT INTO rigaRuoli (IdUserFK, IdRuoloFK) VALUES ($IdUser, 1)");
+		mysqli_query($con, "INSERT INTO rigaruoli (IdUserFK, IdRuoloFK) VALUES ($IdUser, 1)");
 	} else {
-		mysqli_query($con, "DELETE FROM rigaRuoli WHERE IdUserFK=$IdUser AND IdRuoloFK=1");
+		mysqli_query($con, "DELETE FROM rigaruoli WHERE IdUserFK=$IdUser AND IdRuoloFK=1");
 	}
 
 	echo "<h1> Ruoli aggiornati </h1> <br>\n";
 	//genitore
 	if ($gen) {
 		mysqli_query($con, "INSERT INTO genitori (IdUserFK) VALUES ($IdUser)");
-		mysqli_query($con, "INSERT INTO rigaRuoli (IdUserFK, IdRuoloFK) VALUES ($IdUser, 2)");
+		mysqli_query($con, "INSERT INTO rigaruoli (IdUserFK, IdRuoloFK) VALUES ($IdUser, 2)");
 
 		//showing his childs and possibility to add other childs
 		$resultSearchFigli = mysqli_query($con, "SELECT * FROM genitore_di JOIN bimbi ON (idBimboFk = IdBimbo) JOIN categorie ON (idCatFk = idCat) WHERE IdUserFK=$IdUser");
@@ -112,7 +112,7 @@ if (!isLogged() or !$_SESSION["isAdmin"] or !isset($_POST["ins"])) {
 
 
 	} else {
-		mysqli_query($con, "DELETE FROM rigaRuoli WHERE IdUserFK=$IdUser AND IdRuoloFK=2");
+		mysqli_query($con, "DELETE FROM rigaruoli WHERE IdUserFK=$IdUser AND IdRuoloFK=2");
 		mysqli_query($con, "DELETE FROM genitore_di WHERE IdUserFK=$IdUser");
 		mysqli_query($con, "DELETE FROM genitori WHERE IdUserFK=$IdUser");
 
