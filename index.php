@@ -58,7 +58,10 @@ if (!isLogged()) {
 		if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps target='_blank'> $posizione </a>";
 		else $stringToPrintLink = $posizione;
 
-		echo "<tr> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>$stringToPrintLink </td>"; 
+		if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) $linkRacesWithClick = "onclick=\"location.href='vistaCorse.php?idCorsa=$idCorsa'\"";
+		else $linkRacesWithClick = "";
+
+		echo "<tr $linkRacesWithClick class='righeCorse'> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>$stringToPrintLink </td>"; 
 		//per ogni bambino di cui è genitore devo fare pulsante per iscrivere figli/o
 			//se il bambino è già iscritto non mostro un pulsante per iscriverlo ma per disiscriverlo
 		//se non è genitore non devo mostrare quel pulsante ma solo quello per vedere la lista completa degli iscritti
@@ -107,10 +110,12 @@ if (!isLogged()) {
 		}
 
 		//showing button for race's info
+		/*
 		if ($_SESSION["isAdmin"] or $_SESSION["isTrainer"])
 			echo "<td> <form action=vistaCorse.php method=POST> <input type=hidden name=idCorsa value=$idCorsa> <input type=submit name=sub value=+> </form> </td>";
 
 		echo "</tr> \n";
+		*/
 	}
 	echo "</table>";
 

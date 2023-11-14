@@ -43,14 +43,14 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	}
 
 	echo "<form action=# method=POST> <input type=submit value=clear> </form>";
-	echo "<table border=1> \n <tr> <th> Nome </th> <th> Cognome </th> <th> Username* </th> <th> Genitore </th> <th> Allenatore </th> <th> Admin </th> <th> </th> </tr> \n";
-	echo "<form action=insertUtente.php method=POST> \n <tr> <td> <input type=text name=nome value='$nomePost' required> </td> <td> <input type=text name=cognome value='$cognomePost' required> </td> <td> <input type=text name=username value='$usernamePost' required> </td> \n"; 
+	echo "<table border=1 class='utenti'> \n <tr> <th> Nome </th> <th> Cognome </th> <th> Username* </th> <th> Genitore </th> <th> Allenatore </th> <th> Admin </th> <th> </th> </tr> \n";
+	echo "<form action=insertUtente.php method=POST> \n <tr height=35px> <td> <input type=text name=nome value='$nomePost' required> </td> <td> <input type=text name=cognome value='$cognomePost' required> </td> <td> <input type=text name=username value='$usernamePost' required> </td> \n"; 
 	//combobox rouli
 	echo "<td> <input type=checkbox name=gen $isGen> </td>";
 	echo "<td> <input type=checkbox name=all $isAll> </td>";
 	echo "<td> <input type=checkbox name=adm $isAdm> </td>";
 
-	echo "<td> <input type=hidden name=IdUtente value=$IdUser> <input type=submit name=ins value='$stringToInsertSub'> </td> </tr> </form>\n  <tr></tr><tr></tr><tr></tr>\n";
+	echo "<td> <input type=hidden name=IdUtente value=$IdUser> <input type=submit name=ins value='$stringToInsertSub'> </td> </tr> </form>\n";
 
 
 
@@ -61,7 +61,7 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 		$nome = $row["Nome"];
 		$cognome = $row["Cognome"];
 		$Username = $row["Username"];		
-		echo "<tr> <form action=# method=POST> <td> <input type=text name=nome value=$nome readonly> </td> <td> <input type=text name=cognome value=$cognome readonly> </td> <td> <input type=text name=Username value=$Username readonly> </td> ";
+		echo "<tr> <form action=# method=POST> <td> <input type=text name=nome value=$nome readonly class='postBackUtenti'> </td> <td> <input type=text name=cognome value=$cognome readonly class='postBackUtenti'> </td> <td> <input type=text name=Username value=$Username readonly class='postBackUtenti'> </td> ";
 		//ruoli
 		$resultR = mysqli_query($con, "SELECT * FROM rigaruoli WHERE IdUserFK = $IdUser");
 		$genR = $allR = $admR = "";

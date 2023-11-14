@@ -38,7 +38,7 @@ h1, h2{
 
 body {
 	/*margin-top: 120px;*/
-	padding-top: 170px;
+	padding-top: 180px;
 }
 .corsePrinc {
 	width: 85%;
@@ -95,3 +95,27 @@ body {
 	width: 20px;
 	height: 20px;
 }
+
+.righeCorse {
+	height: 2rem;
+	vertical-align: middle;
+
+}
+
+table {	
+	border-collapse: collapse;
+	border: 1px solid #BAB7B7;
+}
+th {
+	border : 1px solid #7F7F7F;
+}
+
+td {
+	text-align: center;
+	
+}
+
+.postBackUtenti {
+	border: 0px;
+}
+

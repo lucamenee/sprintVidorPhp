@@ -1,0 +1,797 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"align",
+				"align-items\tproperty"
+			],
+			[
+				"flex-",
+				"flex-wrap\tproperty"
+			],
+			[
+				"que",
+				"querySearchNonFigli"
+			],
+			[
+				"resu",
+				"resultSearchNonFigli"
+			],
+			[
+				"mysqli_fetch",
+				"mysqli_fetch_array"
+			],
+			[
+				"idUser",
+				"IdUserFK"
+			],
+			[
+				"Id",
+				"IdUserFK"
+			],
+			[
+				"geni",
+				"genitore_di"
+			],
+			[
+				"id",
+				"idFromSelect"
+			],
+			[
+				"is",
+				"isGen"
+			],
+			[
+				"che",
+				"checkbox"
+			],
+			[
+				"I",
+				"IdBimbo"
+			],
+			[
+				"mysqli_feth",
+				"mysqli_fetch_array"
+			],
+			[
+				"select",
+				"selected"
+			],
+			[
+				"idCta",
+				"idCatPost"
+			],
+			[
+				"dat",
+				"dataNascita"
+			],
+			[
+				"R",
+				"row"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"margin",
+				"margin-top\tproperty"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"marg",
+				"margin-top\tproperty"
+			],
+			[
+				"wh",
+				"width\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"note",
+				"noteGara"
+			],
+			[
+				"WHere",
+				"WHERE"
+			],
+			[
+				"qu",
+				"queryResultParticipation"
+			],
+			[
+				"to",
+				"totCorse"
+			],
+			[
+				"IdCOrsa",
+				"idCorsaFK"
+			],
+			[
+				"text-a",
+				"text-align\tproperty"
+			],
+			[
+				"data",
+				"dataChiusuraIscrizioni"
+			],
+			[
+				"esclu",
+				"escludi"
+			],
+			[
+				"ro",
+				"rowFigliHead"
+			],
+			[
+				"location",
+				"Location"
+			],
+			[
+				"mysq",
+				"mysql_query"
+			],
+			[
+				"row",
+				"rowFigli"
+			],
+			[
+				"mysqli_fet",
+				"mysqli_fetch_array"
+			],
+			[
+				"jsn",
+				"json_exception"
+			],
+			[
+				"begin",
+				"begin_list"
+			],
+			[
+				"Edl",
+				"endl"
+			],
+			[
+				"assigne",
+				"assignment"
+			],
+			[
+				"str",
+				"stringa"
+			],
+			[
+				"Ed",
+				"endl"
+			],
+			[
+				"pre",
+				"precSlash"
+			],
+			[
+				"set",
+				"set_null"
+			],
+			[
+				"is_nu",
+				"is_null"
+			],
+			[
+				"get",
+				"get_string"
+			],
+			[
+				"pu",
+				"putback"
+			],
+			[
+				"pus",
+				"push_back"
+			],
+			[
+				"end",
+				"end_dictionary"
+			],
+			[
+				"be",
+				"begin_list"
+			],
+			[
+				"pri",
+				"print_valori"
+			],
+			[
+				"beg",
+				"begin_dictionary"
+			],
+			[
+				"d",
+				"dict"
+			],
+			[
+				"endl",
+				"end_list"
+			],
+			[
+				"list",
+				"list_iterator"
+			],
+			[
+				"print",
+				"print_valori"
+			],
+			[
+				"is_",
+				"is_number"
+			],
+			[
+				"pt",
+				"print_prova"
+			],
+			[
+				"prin",
+				"print"
+			],
+			[
+				"set_nu",
+				"set_number"
+			],
+			[
+				"prova",
+				"prova1"
+			],
+			[
+				"push",
+				"push_front"
+			],
+			[
+				"json",
+				"json_exception"
+			],
+			[
+				"boole",
+				"boolean"
+			],
+			[
+				"dict",
+				"dictionary"
+			],
+			[
+				"bol",
+				"boolean"
+			],
+			[
+				"ste",
+				"set_null"
+			],
+			[
+				"bool",
+				"boolean"
+			],
+			[
+				"in",
+				"insert"
+			],
+			[
+				"n",
+				"next"
+			],
+			[
+				"head",
+				"headToHold"
+			],
+			[
+				"it",
+				"iterator"
+			],
+			[
+				"poiter",
+				"pointer"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"st",
+				"stack"
+			],
+			[
+				"t",
+				"testa"
+			],
+			[
+				"m",
+				"m_back"
+			],
+			[
+				"r",
+				"rhs"
+			],
+			[
+				"l",
+				"list"
+			],
+			[
+				"po",
+				"pop_back"
+			],
+			[
+				"pop",
+				"pop_front"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"ptr",
+				"ptr2"
+			],
+			[
+				"tep",
+				"template"
+			],
+			[
+				"p",
+				"ptr"
+			],
+			[
+				"m_",
+				"m_back"
+			],
+			[
+				"e",
+				"empty"
+			],
+			[
+				"M",
+				"m_front"
+			],
+			[
+				"my",
+				"my_pair"
+			],
+			[
+				"tp",
+				"typedef"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"first",
+				"first_type"
+			],
+			[
+				"ty",
+				"typename"
+			],
+			[
+				"typ",
+				"typedef"
+			],
+			[
+				"FI",
+				"firstType"
+			],
+			[
+				"con",
+				"const"
+			],
+			[
+				"fir",
+				"firstType"
+			],
+			[
+				"se",
+				"second"
+			],
+			[
+				"second",
+				"secondType"
+			],
+			[
+				"fi",
+				"first"
+			],
+			[
+				"app",
+				"append_from_empty"
+			],
+			[
+				"a",
+				"append_from_empty"
+			],
+			[
+				"do",
+				"double"
+			],
+			[
+				"new",
+				"newCell"
+			],
+			[
+				"exp",
+				"exp1"
+			],
+			[
+				"ex",
+				"exp2"
+			],
+			[
+				"isc",
+				"is_closeGraf"
+			],
+			[
+				"is_do",
+				"is_dot"
+			],
+			[
+				"get_",
+				"get_var_name"
+			],
+			[
+				"ad",
+				"and"
+			],
+			[
+				"is_d",
+				"is_div"
+			],
+			[
+				"s",
+				"std"
+			],
+			[
+				"tok",
+				"token"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"ma",
+				"m_value"
+			],
+			[
+				"io",
+				"iostream\tstandard header"
+			],
+			[
+				"string",
+				"stringPascal"
+			],
+			[
+				"cou",
+				"countMinori"
+			],
+			[
+				"ap",
+				"alphabet"
+			],
+			[
+				"qui",
+				"quickSearchRecursive"
+			],
+			[
+				"ordi",
+				"ordineAlfabetico"
+			],
+			[
+				"inp",
+				"inputYi"
+			],
+			[
+				"count",
+				"countCerchi"
+			],
+			[
+				"pr",
+				"printMatrix"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"//wsl.localhost/Ubuntu-20.04/root/ASD/esercitazione1/es1.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 2/I semestre/ASD1/esercitazione1/es1.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w5/calculator/v1.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/json.cpp",
+		"/C/xampp/htdocs/sprintVidor/gestioneAnagrafiche/utenti.php",
+		"/C/xampp/htdocs/sprintVidor/vistaCorse.php",
+		"/C/xampp/htdocs/sprintVidor/gestioneAnagrafiche/legami.php",
+		"/C/xampp/htdocs/sprintVidor/gestioneAnagrafiche/insertUtente.php",
+		"/C/xampp/htdocs/sprintVidor/updatepsw/index.php",
+		"/C/xampp/htdocs/sprintVidor/inserimentoCorse/insert.php",
+		"/C/xampp/htdocs/sprintVidor/login/index.php",
+		"/C/xampp/htdocs/sprintVidor/updatepsw/update.php",
+		"/C/xampp/htdocs/sprintVidor/gestioneAnagrafiche/insertAtleta.php",
+		"/C/xampp/htdocs/sprintVidor/gestioneAnagrafiche/atleti.php",
+		"/C/xampp/htdocs/sprintVidor/inserimentoCorse/index.php",
+		"/C/xampp/htdocs/sprintVidor/archivioCorse/index.php",
+		"/C/xampp/htdocs/sprintVidor/index.php",
+		"/C/xampp/htdocs/sprintVidor/functions/vistaCorseFunctions.php",
+		"/C/xampp/htdocs/sprintVidor/insertParticipation.php",
+		"/C/xampp/htdocs/sprintVidor/README.md",
+		"/C/xampp/htdocs/sprintVidor/functions/general.php",
+		"/C/xampp/htdocs/sprintVidor/statistiche/index.php",
+		"/C/xampp/htdocs/sprintVidor/archivioCorse/vistaCorse.php",
+		"/C/xampp/htdocs/sprintVidor/archivioCorse/index.pgp",
+		"/C/xampp/htdocs/sprintVidor/inserimentoCorse/form.php",
+		"/C/xampp/htdocs/sprintVidor/functions/login.php",
+		"/C/xampp/htdocs/sprintVidor/style.css",
+		"/C/xampp/htdocs/sprintVidor/vistaCorseFunctions.php",
+		"/C/xampp/htdocs/sprintVidor/genitore/insertParticipation.php",
+		"/C/xampp/htdocs/sprintVidor/genitore/index.php",
+		"/C/xampp/htdocs/sprintVidor/prossimeCorse/insertParticipation.php",
+		"/C/xampp/htdocs/sprintVidor/prossimeCorse/index.php",
+		"/C/xampp/htdocs/sprintVidor/logout/index.php",
+		"//wsl.localhost/Ubuntu-20.04/root/w11/iterator/list.cpp",
+		"/C/Users/Luca/Desktop/test.php",
+		"/C/Users/Luca/AppData/Local/Temp/Rar$DIa860.45308/json.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Rar$DIa12168.33502/json.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/file consegnati/3/json.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/file consegnati/2/json.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/file consegnati/1/895383/json.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Rar$DIa7264.14124/json.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/json.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w6/arithtree.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w7/tokens.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Rar$DIa21032.11127/json.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/file consegnati/2/json.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Rar$DIa20880.40623/json.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/prove/consegna/json.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Rar$DIa8348.16813/json.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Rar$DIa8348.22107/json.cpp",
+		"/C/Users/Luca/AppData/Local/Microsoft/Windows/INetCache/IE/3XT41WRH/TestoEsamePEL[1].cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/progetto/salvataggi/json.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/file consegnati/895383/json.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/progetto/file consegnati/json.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/listDlPimpl/listDlImpl.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w4/ricorsione/es2.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w4/ricorsione/es1.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w4/ricorsione/ricorsione.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w8/template/01.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w6/bps.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w9/template/01.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w9/template/templ.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/prove/memorizzazioneStringhe/01.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w5/calculator/exception.cpp",
+		"/C/Users/Luca/AppData/Local/Microsoft/Windows/INetCache/IE/A43ZZ7AD/esame[1].cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/prove/dizionario/01.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w10/listDlPimpl/listDlImpl.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w9/exTemplate.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w9/template/templ.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w8/doubleLinkedList.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w4/ricerca.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w4/bubbleSortOttimizzato.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w3/stringhe1.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w3/struct.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Temp1_list (1).zip/test_list.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Temp1_list (1).zip/list.hpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w10/container/list.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w10/container/testList.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w10/container/test_list.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/fileGroupByWeek/w10/container/list.hpp",
+		"/C/Users/Luca/Desktop/exercise_templates_partial.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/listDlPimpl/listDlEx.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/progettoPEL/prove/liste/1.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es7/es2.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es7/es1.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es8/2.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es8/1.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es8/3.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es8/2.ccpp",
+		"/C/Users/Luca/Downloads/ruzzle.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es7/es3.cpp",
+		"/C/Users/Luca/Desktop/es1.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es6.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es5.cpp",
+		"/C/Users/Luca/Desktop/progettoPEL/json.hpp",
+		"/C/Users/Luca/Desktop/progettoPEL/json.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w11/iterator/test_list.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w11/iterator/list.hpp",
+		"/C/Users/Luca/Desktop/jsonGrammar.txt",
+		"//wsl.localhost/Ubuntu-20.04/root/w12/iterator/list.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w12/iterator/test_list.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w12/iterator/list.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es6/es3.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es6/es1.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es6/es2.cpp",
+		"/C/Users/Luca/Downloads/list.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/listDlPimpl/listDl.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w11/interpretePolaccoPostfisso.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/date/datePimpl.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/provaEsercitazione.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es3/3.cpp",
+		"/C/Users/Luca/Desktop/Uni/anno 1/2° semestre/PEL/esercitazioni/es4/all3.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/container/list.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/container/list.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/container/test_list.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/container/prov.php",
+		"/C/Users/Luca/Downloads/test_list (1).cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/container/testList.cpp",
+		"/C/Users/Luca/Downloads/list (1).cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w9/exTemplate.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/list.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/list.hpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w10/container.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w9/template/02.cpp",
+		"/C/Users/Luca/Downloads/templ.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w4/esercizioClassi.cpp",
+		"//wsl.localhost/Ubuntu-20.04/root/w8/doubleLinkedList.cpp",
+		"/C/Users/Luca/AppData/Local/Temp/Temp1_classlist (1).zip/classlist/listclass.cpp"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 113.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "insert.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

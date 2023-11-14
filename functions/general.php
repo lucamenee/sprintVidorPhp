@@ -24,7 +24,7 @@ function convertDataIta($originalDate) {
 
 function printHead() {
 	global $path;
-	
+
 	echo "<head>
 	  <link href='$path/style.css' rel='stylesheet'>
 	  <script src='$path/functions/general.js'></script>
@@ -35,7 +35,18 @@ function printHead() {
 			<h2> LA VALLATA A.S.D. </h2> 
 		</div>\n 
 		<img class=logo id=logo src='$path/img/logoAlt.jpg' width=120 height=120 align=right>\n";
-	echo "<div class='toolbar' id='toolbar'> <div> TOOLBAR </div> <div> TOOLBAR </div> </div>";
+
+	if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"]) {
+		echo "<div class='toolbar' id='toolbar'> <div> Logout </div> <div> Cambia password </div>";
+		if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
+			echo "<div> Statistiche </div> <div> Archivio corse </div> <div> Gestione anagrafiche </div>";
+			if ($_SESSION["isAdmin"]) {
+			echo "<div> Inserimento corse </div>";
+			}
+		}
+
+		echo "</div>";
+	}
 }
 
 function insertAst($input) {

@@ -5,7 +5,6 @@ session_start();
 
 if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"] == true)
 	header('Location: ../index.php');
-
 ?>
 	<br>
 	<div style="float:left;width:200px;text-align:right;">

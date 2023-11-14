@@ -24,11 +24,10 @@ if (!isLogged()  or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"]) and !iss
 	$noteGara = $datiCorsa["noteGara"];
 	$linkMaps = $datiCorsa["linkMaps"];
 
-	$stringToPrintPosizione = "$luogo, $posizione";
-	if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps target='_blank'> $stringToPrintPosizione </a>";
-	else $stringToPrintLink = $stringToPrintPosizione;
+	if ($linkMaps) $stringToPrintLink = "<a href=$linkMaps target='_blank'>$posizione</a>";
+	else $stringToPrintLink = $posizione;
 
-	echo "$stringToPrintLink - $dataEvento, $ora <br> \n";
+	echo "$luogo, $stringToPrintLink - $dataEvento, $ora <br> \n";
 	if ($notePosizione) echo "Posizione: $notePosizione <br> \n";
 	if ($noteGara) echo "Note gara: $noteGara <br> \n";
 	echo "iscrizioni ";
