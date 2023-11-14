@@ -9,14 +9,10 @@ if (!isLogged()) {
 	echo "redirectoring to login";
 	header('Location: ./login');
 } else {
-	//echo "<h1>Sprint Vidor</h1>";
+	echo "<br> <h1> Prossime Corse </h1> \n";
 
-	/*
-	metti "barra delle funzioni" prima della tabella [solo per allenatori e amministratori]
-	(vista archivio vecchie corse, escludi bambini da determinate corse, gestione anagrafica->(inserimento bambini e genitori, gestione relazione bimbi-genitori))
-			statistiche bimbi->(elenco bimbi con corse con cui hanno partecipato)
-	*/
-	if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
+	
+	/*if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
 		if ($_SESSION["isAdmin"])
 			echo "<a href=./inserimentoCorse> Nuova corsa </a> <br>\n";
 		echo "<a href=./gestioneAnagrafiche> Gestione anagrafiche </a> <br>\n";
@@ -25,7 +21,7 @@ if (!isLogged()) {
 	}
 
 	echo "<form action='./logout'> \n <input type=submit value=logout> \n </form>"; 
-	echo "<form action='./updatepsw'> \n <input type=submit value='cambia password'> \n </form>";
+	echo "<form action='./updatepsw'> \n <input type=submit value='cambia password'> \n </form>";*/
 
 	$idUser = $_SESSION["idUser"];
 	//showing upcoming races and:

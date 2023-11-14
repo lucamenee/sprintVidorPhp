@@ -15,30 +15,10 @@ h1, h2{
 	margin-top: 10;
 }
 
-.toolbar {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: center;
-	height: 55px;
-	background-color: #C81010; 
-	color:white;
-
-	position: fixed;
-	top: 120;
-	left: 0;
-	width: 100%;
-	/*padding: 10px;*/
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	z-index: 2;
-	 /* Initially hide the toolbar */
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	
-}
-
 body {
 	/*margin-top: 120px;*/
 	padding-top: 180px;
+	padding-bottom: 15px;
 }
 .corsePrinc {
 	width: 85%;
@@ -115,7 +95,75 @@ td {
 	
 }
 
+
+.toolbar {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	height: 55px;
+	background-color: #C81010; 
+	color:white;
+
+	position: fixed;
+	top: 120;
+	left: 0;
+	width: 100%;
+	z-index: 2;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 0px 0px 10px 10px;
+}
+
 .postBackUtenti {
 	border: 0px;
+}
+
+.object {
+	flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-around;
+	
+
+	/*border: 1px solid #ED9E9E;*/
+	height: 55px;
+	/*width: 180px;*/
+	/*text-align: center;
+	vertical-align: middle;*/
+
+}
+
+.object:hover {
+	background: #ddd;
+ 	color: black;
+}
+
+
+.footerCredits {
+	font-family: Georgia, serif;
+	height: 15px;
+	
+	width: 100%;
+	z-index: 2;
+	background-color: #ddd; 
+	/*position: fixed;*/
+	position: fixed;
+    bottom: 0;
+	left: 0px;
+	right: 0px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	border-radius: 10px 10px 10px 10px;
+	font-size: 13px;
+
+}
+
+.githubImg {
+	height: 12px;
+	width: 12px;
+	z-index: 3;
+	padding-left:4em 
 }
 

@@ -34,19 +34,23 @@ function printHead() {
 			<h1> SPRINT VIDOR </h1>
 			<h2> LA VALLATA A.S.D. </h2> 
 		</div>\n 
-		<img class=logo id=logo src='$path/img/logoAlt.jpg' width=120 height=120 align=right>\n";
+		<img class=logo id=logo src='$path/img/logoAltNoSfondo.png' width=120 height=120 align=right>\n";
 
 	if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"]) {
-		echo "<div class='toolbar' id='toolbar'> <div> Logout </div> <div> Cambia password </div>";
+		echo "<div class='toolbar' id='toolbar'>";
+		$classObject = "class=object";
 		if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
-			echo "<div> Statistiche </div> <div> Archivio corse </div> <div> Gestione anagrafiche </div>";
+			echo "<div $classObject onclick=\"window.location='$path/gestioneAnagrafiche'\"> Gestione anagrafiche </div> <div $classObject onclick=\"window.location='$path/statistiche'\"> Statistiche </div> <div $classObject onclick=\"window.location='$path/archivioCorse'\"> Archivio corse </div>";
 			if ($_SESSION["isAdmin"]) {
-			echo "<div> Inserimento corse </div>";
+			echo "<div $classObject onclick=\"window.location='$path/inserimentoCorse'\"> Nuova corsa </div>";
 			}
 		}
-
+		echo "<div $classObject onclick=\"window.location='$path/updatepsw'\"> Cambia password </div> <div $classObject id='objectLogout' onclick=\"window.location='$path/logout'\"> Logout </div>";
 		echo "</div>";
 	}
+
+	//footer for credits
+	echo "<div class=footerCredits> <div>Prodotto svilippato da Luca Meneghetti </div> <div> <a href=https://github.com/lucamenee target='_blank'><img src='$path/img/github.png' class=githubImg>Profilo Github </a> </div></div>\n";
 }
 
 function insertAst($input) {
