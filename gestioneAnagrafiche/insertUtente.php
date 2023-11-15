@@ -92,7 +92,7 @@ if (!isLogged() or !$_SESSION["isAdmin"] or !isset($_POST["ins"])) {
 			echo "<br> <h3> Nessun figlio inserito per questo genitore </h3> <br> \n";
 		}
 
-		echo "<h1> Aggiugni figli </h1>\n";	
+		echo "<h1> Aggiungi figli </h1>\n";	
 		$querySearchNonFigli = "SELECT * FROM bimbi JOIN categorie ON (idCatFk = idCat) WHERE idBimbo NOT IN (SELECT idBimboFK FROM genitore_di WHERE IdUserFK=$IdUser)";
 		$resultSearchNonFigli = mysqli_query($con, $querySearchNonFigli);
 		echo "<table border=1>\n";

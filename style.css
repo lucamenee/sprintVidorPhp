@@ -10,7 +10,7 @@
 	
 }
 h1, h2{
-	text-align:center;
+	text-align: center;
 	font-family:'arial black';
 	margin-top: 10;
 }
@@ -79,7 +79,8 @@ body {
 .righeCorse {
 	height: 2rem;
 	vertical-align: middle;
-
+	cursor: pointer;
+	
 }
 
 table {	
@@ -128,6 +129,7 @@ td {
 
 	/*border: 1px solid #ED9E9E;*/
 	height: 55px;
+	user-select: none; 
 	/*width: 180px;*/
 	/*text-align: center;
 	vertical-align: middle;*/
@@ -147,7 +149,6 @@ td {
 	width: 100%;
 	z-index: 2;
 	background-color: #ddd; 
-	/*position: fixed;*/
 	position: fixed;
     bottom: 0;
 	left: 0px;
@@ -167,3 +168,33 @@ td {
 	padding-left:4em 
 }
 
+.menuAnagrafiche {
+	/*resize width on click of gestione anagrafiche*/
+	display: none;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: left;
+	flex-direction: column;;
+	/*height: 55px;*/
+	background-color: #981000; 
+	color:white;
+
+	position: fixed;
+	
+	
+	top: 175;
+	left: 10;
+	width: 170px;
+	z-index: 2;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 0px 0px 10px 10px;	
+}
+
+.objectAnagrafiche {
+	padding-bottom: 4px;
+	padding-left: 20px;
+}
+.objectAnagrafiche:hover {
+	background: #ddd;
+ 	color: black;
+}

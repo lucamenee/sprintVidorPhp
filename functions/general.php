@@ -37,16 +37,24 @@ function printHead() {
 		<img class=logo id=logo src='$path/img/logoAltNoSfondo.png' width=120 height=120 align=right>\n";
 
 	if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"]) {
-		echo "<div class='toolbar' id='toolbar'>";
+		echo "<div class='toolbar' id='toolbar'>\n";
 		$classObject = "class=object";
 		if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
-			echo "<div $classObject onclick=\"window.location='$path/gestioneAnagrafiche'\"> Gestione anagrafiche </div> <div $classObject onclick=\"window.location='$path/statistiche'\"> Statistiche </div> <div $classObject onclick=\"window.location='$path/archivioCorse'\"> Archivio corse </div>";
+			echo "<div $classObject id=gestioneAnangrafiche onclick=\"clickAnagraficheFunction()\"> Gestione anagrafiche </div>\n";
+			echo "<div $classObject onclick=\"window.location='$path/statistiche'\"> Statistiche </div> <div $classObject onclick=\"window.location='$path/archivioCorse'\"> Archivio corse </div>";
 			if ($_SESSION["isAdmin"]) {
 			echo "<div $classObject onclick=\"window.location='$path/inserimentoCorse'\"> Nuova corsa </div>";
 			}
 		}
 		echo "<div $classObject onclick=\"window.location='$path/updatepsw'\"> Cambia password </div> <div $classObject id='objectLogout' onclick=\"window.location='$path/logout'\"> Logout </div>";
 		echo "</div>";
+		if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
+			echo "<div class=menuAnagrafiche id=menuAnagrafiche> <div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/atleti.php'\"> Inserisci atleta </div>\n";
+			if ($_SESSION["isAdmin"]) {
+				echo "<div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/utenti.php'\"> Inserisci utenti </div>\n";
+				echo "<div class=objectAnagrafiche> Elimina </div>\n </div>\n";
+			}
+		}
 	}
 
 	//footer for credits

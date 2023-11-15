@@ -8,7 +8,7 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 	echo "redirectoring to login";
 	header('Location: ../login');
 } else {
-	echo "<form action=index.php> <input type=submit value='← indietro'> </form>";
+	echo "<form action=../> <input type=submit value='← indietro'> </form>";
 	$con = connection();
 
 	//creazione form inserimento/modifica
