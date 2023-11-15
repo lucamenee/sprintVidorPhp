@@ -46,12 +46,12 @@ if (!isLogged() or !isset($_POST["sub"])) {
 		
 
 		//form per conferma iscrizione/cancellazione iscrizione
-		echo "<form action=# method=POST>\n";
+		echo "<form action=# method=POST class='iscrizione'>\n";
 		if ($escludi) $stringPreConferma = "esclusione";
 		else if ($iscritto) $stringPreConferma = "disiscrizione";
 		else $stringPreConferma = "iscrizione";
 
-		echo "Conferma $stringPreConferma di $nomeBimbo per la gara di $luogoCorsa del $dataCorsa <br>\n";
+		echo "<h2> Conferma $stringPreConferma di $nomeBimbo per la gara di $luogoCorsa del $dataCorsa <h2> <br>\n";
 		echo "<input type=submit name=sub value=conferma> <input type=submit name=sub value=annulla>\n";
 		echo "<input type=hidden name=idBimbo value=$idBimbo>
 			<input type=hidden name=idCorsa value=$idCorsa>

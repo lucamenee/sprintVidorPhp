@@ -78,17 +78,25 @@ body {
 
 .righeCorse {
 	height: 2rem;
-	vertical-align: middle;
-	cursor: pointer;
-	
+	vertical-align: middle;	
+    background-color: white;
 }
+.righeCorse:hover {
+    background-color: #f2f2f2;
+}
+
 
 table {	
 	border-collapse: collapse;
 	border: 1px solid #BAB7B7;
+
 }
 th {
 	border : 1px solid #7F7F7F;
+	font-size: 1.5rem;
+	color: #363532;
+	background: #FFFDF9;
+	font-family: 'calibri';
 }
 
 td {
@@ -106,6 +114,7 @@ td {
 	background-color: #C81010; 
 	color:white;
 
+	font-size: 1.2rem;
 	position: fixed;
 	top: 120;
 	left: 0;
@@ -197,4 +206,54 @@ td {
 .objectAnagrafiche:hover {
 	background: #ddd;
  	color: black;
+}
+
+
+.iscrizione input{
+	width: 10rem;
+	height: 4rem;
+	font-size: 1.7rem;
+	font-family: 'calibri';
+	color: white;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 3px 3px 3px 3px;
+	border: 0px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.iscrizione input[value=conferma] {
+	background: #40CF12;
+}
+
+.iscrizione input[value=annulla] {
+	background: #E83737;
+}
+
+
+.righeCorse input{
+	width: 5rem;
+	height: 2rem;
+	font-size: 1rem;
+	font-family: 'calibri';
+	color: white;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 3px 3px 3px 3px;
+	border: 0px;
+	/*margin-left: 20px;
+	margin-right: 20px;*/
+	margin-top: 5px;
+}
+
+.righeCorse td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.righeCorse input[value=iscrivi] {
+	background: #40CF12;
+}
+
+.righeCorse input[value=disiscrivi] {
+	background: #E83737;
 }

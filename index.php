@@ -34,7 +34,7 @@ if (!isLogged()) {
 	$queryFigli = "SELECT * FROM genitore_di JOIN bimbi on (idBimboFK = idBimbo) WHERE idUserFK = $idUser";
 	$queryResultFigliHead = mysqli_query($con, $queryFigli);
 	echo "<table class=corsePrinc border=1> \n";
-	echo "<tr> <th>luogo</th> <th>data evento</th> <th>ora</th> <th>indirizzo</th>";
+	echo "<tr> <th>Luogo</th> <th>Data evento</th> <th>Ora</th> <th>Indirizzo</th>";
 	while ($rowFigliHead = mysqli_fetch_array($queryResultFigliHead)) {
 		$nomeFiglioHead = $rowFigliHead["nome"];
 		echo "<th> $nomeFiglioHead </th>";
@@ -57,7 +57,10 @@ if (!isLogged()) {
 		if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) $linkRacesWithClick = "onclick=\"location.href='vistaCorse.php?idCorsa=$idCorsa'\"";
 		else $linkRacesWithClick = "";
 
-		echo "<tr $linkRacesWithClick class='righeCorse'> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>$stringToPrintLink </td>"; 
+		echo "<tr $linkRacesWithClick class='righeCorse'";
+		if ($_SESSION["isAdmin"] or $_SESSION["isTrainer"])
+			echo "style='cursor: pointer;'";
+		echo "> <td>$luogo</td> <td>$dataEvento</td> <td>$ora</td> <td>$stringToPrintLink </td>"; 
 		//per ogni bambino di cui è genitore devo fare pulsante per iscrivere figli/o
 			//se il bambino è già iscritto non mostro un pulsante per iscriverlo ma per disiscriverlo
 		//se non è genitore non devo mostrare quel pulsante ma solo quello per vedere la lista completa degli iscritti

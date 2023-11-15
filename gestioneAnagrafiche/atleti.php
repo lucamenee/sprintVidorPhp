@@ -29,7 +29,7 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 		$IdBimboPost=null;
 	}
 	echo "<form action=# method=POST> <input type=submit value=clear> </form>";
-	echo "<table border=1> \n <tr> <th> Nome </th> <th> Cognome </th> <th> Data di nascita </th> <th> Categoria </th> <th> </th> </tr> \n";
+	echo "<table border=1 class='utenti'> \n <tr> <th> Nome </th> <th> Cognome </th> <th> Data di nascita </th> <th> Categoria </th> <th> </th> </tr> \n";
 	echo "<form action=insertAtleta.php method=POST> \n <tr> <td> <input type=text name=nome value='$nomePost' required> </td> <td> <input type=text name=cognome value='$cognomePost' required> </td> <td> <input type=date name=dataNascita value='$dataNascitaPost' required> </td> \n"; 
 		//combobox categorie
 	echo "<td> <select name=IdCat>\n";
@@ -56,7 +56,7 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 		$idCat = $row["idCat"];
 		$Descrizione = $row["Descrizione"];
 		
-		echo "<tr> <form action=# method=POST> <td> <input type=text name=nome value=$nome readonly> </td> <td> <input type=text name=cognome value=$cognome readonly> </td> <td> <input type=date name=dataNascita value=$dataNascita readonly> </td> <td> <input type=text name=Descrizione value=$Descrizione disable> </td> <td> <input type=hidden name=idCat value=$idCat> <input type=hidden name=IdBimbo value=$IdBimbo> <input type=submit name=postBack value=modifica> </td>";
+		echo "<tr> <form action=# method=POST> <td> <input type=text name=nome value=$nome readonly class='postBackUtenti'> </td> <td> <input type=text name=cognome value=$cognome readonly class='postBackUtenti'> </td> <td> <input type=date name=dataNascita value=$dataNascita readonly class='postBackUtenti'> </td> <td> <input type=text name=Descrizione value=$Descrizione disable class='postBackUtenti'> </td> <td> <input type=hidden name=idCat value=$idCat> <input type=hidden name=IdBimbo value=$IdBimbo> <input type=submit name=postBack value=modifica> </td>";
 		echo "</form> </tr>";
 	}
 

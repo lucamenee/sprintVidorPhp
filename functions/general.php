@@ -52,8 +52,9 @@ function printHead() {
 			echo "<div class=menuAnagrafiche id=menuAnagrafiche> <div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/atleti.php'\"> Inserisci atleta </div>\n";
 			if ($_SESSION["isAdmin"]) {
 				echo "<div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/utenti.php'\"> Inserisci utenti </div>\n";
-				echo "<div class=objectAnagrafiche> Elimina </div>\n </div>\n";
+				echo "<div class=objectAnagrafiche> Elimina </div>\n";
 			}
+			echo "</div>\n";
 		}
 	}
 
