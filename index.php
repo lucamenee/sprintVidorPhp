@@ -74,7 +74,7 @@ if (!isLogged()) {
 			$queryResultParticipation = mysqli_query($con, "SELECT * FROM partecipa WHERE idCorsaFK = $idCorsa AND idBimboFK = $idFiglio");
 			$stringToInsert = "iscrivi";
 			$iscrizione = false;
-			$iscritto = "non iscritto";
+			$iscritto = "<i class=nnIscrittoP> non iscritto </i>";
 			$escluso = false;
 			if (mysqli_num_rows($queryResultParticipation)>0) {
 				$resultParticipation = mysqli_fetch_array($queryResultParticipation);
@@ -85,13 +85,13 @@ if (!isLogged()) {
 				} else if ($resultParticipation["iscritto"]){
 					$stringToInsert = "disiscrivi";
 					$iscrizione = true;
-					$iscritto = "iscritto";
+					$iscritto = "<i class=iscrittoP> iscritto </i>";
 				}
 			}
 			
 			//bottone iscrizione bloccato se iscrizioni per quella corsa sono già terminate e mostra solo una scritta 
 			if ($dataChiusuraIscrizioni < today()) { //iscrizioni terminate
-				echo "<td> <i>$iscritto</i></td>";
+				echo "<td> <b> $iscritto </b> </td>";
 			} else if ($escluso) { //partecipazione non consentita
 				echo "<td> <i> Iscrizione non possibile </i> </td>";
 			} else { //iscrizioni aperte
@@ -123,3 +123,7 @@ if (!isLogged()) {
 ?>
 
 </body>
+
+<?php
+	printFooter();
+?>

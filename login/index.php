@@ -7,17 +7,19 @@ if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"] == true)
 	header('Location: ../index.php');
 ?>
 	<br>
-	<div style="float:left;width:200px;text-align:right;">
-		Username:<br>
-		Password:<br>
-	</div>
+	<div class=login>
+		<div style="float:left;width:200px;text-align:right;">
+			Username:<br>
+			Password:<br>
+		</div>
 
-	<div style="margin-left:215px">
-		<form action=# method=POST>
-			<input type=text name=username> <br>
-			<input type=password name=password> <br> <br>
-			<input type=submit name=go value=login>
-		</form>
+		<div style="margin-left:215px">
+			<form action=# method=POST>
+				<input type=text name=username> <br>
+				<input type=password name=password> <br> <br>
+				<input type=submit name=go value=login>
+			</form>
+		</div>
 	</div>
 
 
@@ -47,4 +49,8 @@ if (isset($_POST["go"])) {
 }
 
 
+?>
+
+<?php
+	printFooter();
 ?>

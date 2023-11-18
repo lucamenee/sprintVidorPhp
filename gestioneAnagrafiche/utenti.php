@@ -42,9 +42,26 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 		$IdUser = "";
 	}
 
+	if (isset($_POST["postBackDel"]) and $_POST["postBackDel"] == "Elimina utenti") $elimina = true;
+	else $elimina = false;
+
+	if ($elimina) $stringToInsertDel = "'Annulla'";
+	else $stringToInsertDel = "'Elimina utenti'";
+
+	/*
+	posiziona questi due form nella stessa linea, una a dx, uno a sx
+	*/
 	echo "<form action=# method=POST> <input type=submit value=clear> </form>";
-	echo "<table border=1 class='utenti'> \n <tr> <th> Nome </th> <th> Cognome </th> <th> Username* </th> <th> Genitore </th> <th> Allenatore </th> <th> Admin </th> <th> </th> </tr> \n";
-	echo "<form action=insertUtente.php method=POST> \n <tr height=35px> <td> <input type=text name=nome value='$nomePost' required> </td> <td> <input type=text name=cognome value='$cognomePost' required> </td> <td> <input type=text name=username value='$usernamePost' required> </td> \n"; 
+	echo "<form action=# method=POST> <input type=submit name=postBackDel value=$stringToInsertDel class=elimina> </form>";
+
+	echo "<table border=1 class='utenti'> \n <tr>";
+	if ($elimina)
+		echo "<th> </th>";
+	echo" <th> Nome </th> <th> Cognome </th> <th> Username* </th> <th> Genitore </th> <th> Allenatore </th> <th> Admin </th> <th> </th> </tr> \n";
+	echo "<form action=insertUtente.php method=POST> \n <tr height=35px>";
+	if ($elimina)
+		echo "<td> </td>";
+	echo "<td> <input type=text name=nome value='$nomePost' required> </td> <td> <input type=text name=cognome value='$cognomePost' required> </td> <td> <input type=text name=username value='$usernamePost' required> </td> \n"; 
 	//combobox rouli
 	echo "<td> <input type=checkbox name=gen $isGen> </td>";
 	echo "<td> <input type=checkbox name=all $isAll> </td>";
@@ -61,7 +78,10 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 		$nome = $row["Nome"];
 		$cognome = $row["Cognome"];
 		$Username = $row["Username"];		
-		echo "<tr> <form action=# method=POST> <td> <input type=text name=nome value=$nome readonly class='postBackUtenti'> </td> <td> <input type=text name=cognome value=$cognome readonly class='postBackUtenti'> </td> <td> <input type=text name=Username value=$Username readonly class='postBackUtenti'> </td> ";
+		echo "<tr>";
+		if ($elimina)
+			echo "<td> <form action=formEliminaUtente.php method=POST class=nullSpace> <input type=hidden name=IdUser value=$IdUser> <input type=submit name=sub value=elimina class=elimina> </form></td>";
+		echo "<form action=# method=POST> <td> <input type=text name=nome value=$nome readonly class='postBackUtenti'> </td> <td> <input type=text name=cognome value=$cognome readonly class='postBackUtenti'> </td> <td> <input type=text name=Username value=$Username readonly class='postBackUtenti'> </td> ";
 		//ruoli
 		$resultR = mysqli_query($con, "SELECT * FROM rigaruoli WHERE IdUserFK = $IdUser");
 		$genR = $allR = $admR = "";

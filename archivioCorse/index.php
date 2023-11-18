@@ -23,7 +23,7 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 	if (mysqli_num_rows($queryResultCorse)) {
 
 		echo "<table class=corsePrinc border=1> \n";
-		echo "<tr> <th>luogo</th> <th>data evento</th> <th>ora</th> <th>indirizzo</th> <th>partecipanti</th> <th>non partecipanti</th></tr>";
+		echo "<tr> <th>Luogo</th> <th>Data evento</th> <th>Ora</th> <th>Indirizzo</th> <th>Partecipanti</th> <th>Non partecipanti</th></tr>";
 		while ($row = mysqli_fetch_array($queryResultCorse)) {
 			$idCorsa = $row["idCorsa"];
 			$luogo = $row["luogo"];

@@ -49,17 +49,19 @@ function printHead() {
 		echo "<div $classObject onclick=\"window.location='$path/updatepsw'\"> Cambia password </div> <div $classObject id='objectLogout' onclick=\"window.location='$path/logout'\"> Logout </div>";
 		echo "</div>";
 		if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
-			echo "<div class=menuAnagrafiche id=menuAnagrafiche> <div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/atleti.php'\"> Inserisci atleta </div>\n";
+			echo "<div class=menuAnagrafiche id=menuAnagrafiche> <div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/atleti.php'\"> Gestione atleti </div>\n";
 			if ($_SESSION["isAdmin"]) {
-				echo "<div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/utenti.php'\"> Inserisci utenti </div>\n";
-				echo "<div class=objectAnagrafiche> Elimina </div>\n";
+				echo "<div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/utenti.php'\"> Gestione utenti </div>\n";
+				echo "<div class=objectAnagrafiche> Elimina corse </div>\n";
 			}
 			echo "</div>\n";
 		}
 	}
+}
 
-	//footer for credits
-	echo "<div class=footerCredits> <div>Prodotto svilippato da Luca Meneghetti </div> <div> <a href=https://github.com/lucamenee target='_blank'><img src='$path/img/github.png' class=githubImg>Profilo Github </a> </div></div>\n";
+function printFooter() {
+	global $path;
+	echo "<footer> <div class=footerCredits> <div>Prodotto svilippato da Luca Meneghetti </div> <div> <a href=https://github.com/lucamenee target='_blank'><img src='$path/img/github.png' class=githubImg>Profilo Github </a> </div></div> <footer>\n";
 }
 
 function insertAst($input) {
