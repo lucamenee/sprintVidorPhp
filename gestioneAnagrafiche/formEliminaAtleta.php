@@ -4,7 +4,7 @@ require_once('../functions/general.php');
 session_start();
 printHead();
 
-if (!isLogged() or !(isset($_POST["sub"]) or isset($_POST["subPost"])) or !$_SESSION["isAdmin"]) {
+if (!isLogged() or !(isset($_POST["sub"]) or isset($_POST["subPost"])) or !($_SESSION["isAdmin"] or $_SESSION["isTrainer"])) {
 	echo "redirectoring to login";
 	header('Location: ../login');
 } else {
