@@ -42,9 +42,6 @@ function printHead() {
 		if ($_SESSION["isTrainer"] or $_SESSION["isAdmin"]) {
 			echo "<div $classObject id=gestioneAnangrafiche onclick=\"clickAnagraficheFunction()\"> Gestione anagrafiche </div>\n";
 			echo "<div $classObject onclick=\"window.location='$path/statistiche'\"> Statistiche </div> <div $classObject onclick=\"window.location='$path/archivioCorse'\"> Archivio corse </div>";
-			if ($_SESSION["isAdmin"]) {
-			echo "<div $classObject onclick=\"window.location='$path/inserimentoCorse'\"> Nuova corsa </div>";
-			}
 		}
 		echo "<div $classObject onclick=\"window.location='$path/updatepsw'\"> Cambia password </div> <div $classObject id='objectLogout' onclick=\"window.location='$path/logout'\"> Logout </div>";
 		echo "</div>";
@@ -52,7 +49,7 @@ function printHead() {
 			echo "<div class=menuAnagrafiche id=menuAnagrafiche> <div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/atleti.php'\"> Gestione atleti </div>\n";
 			if ($_SESSION["isAdmin"]) {
 				echo "<div class=objectAnagrafiche onclick=\"window.location='$path/gestioneAnagrafiche/utenti.php'\"> Gestione utenti </div>\n";
-				echo "<div class=objectAnagrafiche> Elimina corse </div>\n";
+				echo "<div class=objectAnagrafiche onclick=\"window.location='$path/inserimentoCorse'\"> Nuova corsa </div>\n";
 			}
 			echo "</div>\n";
 		}

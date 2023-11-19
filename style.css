@@ -194,7 +194,8 @@ td {
 	
 	top: 175;
 	left: 10;
-	width: 170px;
+	width: 17rem;
+	font-size: 1.1rem;
 	z-index: 2;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	border-radius: 0px 0px 10px 10px;	

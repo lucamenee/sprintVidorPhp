@@ -19,11 +19,11 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 
 	
 	$con = connection();
-	$queryResultCorse = mysqli_query($con, "SELECT * FROM corse where dataEvento >= '$anno/01/01' ORDER BY dataEvento");
+	$queryResultCorse = mysqli_query($con, "SELECT * FROM corse where dataEvento between '$anno/01/01' and '$anno/12/31' ORDER BY dataEvento");
 	if (mysqli_num_rows($queryResultCorse)) {
 
 		echo "<table class=corsePrinc border=1> \n";
-		echo "<tr> <th>Luogo</th> <th>Data evento</th> <th>Ora</th> <th>Indirizzo</th> <th>Partecipanti</th> <th>Non partecipanti</th></tr>";
+		echo "<tr> <th>Luogo</th> <th>Data evento</th> <th>Ora</th> <th>Indirizzo</th> <th>Partecipanti</th> <th>Non partecipanti</th> <th> Modifica dati </th></tr>";
 		while ($row = mysqli_fetch_array($queryResultCorse)) {
 			$idCorsa = $row["idCorsa"];
 			$luogo = $row["luogo"];
@@ -45,6 +45,7 @@ if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 			$nNonPartecipanti = $indecisi + mysqli_num_rows(mysqli_query($con, "SELECT *  FROM partecipa WHERE idCorsaFK = $idCorsa and (iscritto=false or escluso=true)"));
 			
 			echo "<td> $nPartecipanti </td> <td> $nNonPartecipanti </td>";
+			echo "<td> <form action='../vistaCorse.php' method=POST class=nullSpace> <input type=hidden name=idCorsa value=$idCorsa> <input type=submit name=subMod value='modifica'> </form> </td>";
 
 			echo "</tr> \n";
 		}
