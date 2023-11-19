@@ -50,7 +50,8 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	</div> \n";
 
 	echo "<i>*Campi obbligatori </i> <br> <br> \n";
-	echo "<form action=eliminaCorseForm.php method=POST> <input type=hidden name=idCorsa value=$idCorsa> <input type=submit name=subEl value='Elimina corsa' class=elimina> </form>";
+	if (isset($_GET["subMod"]))
+		echo "<form action=eliminaCorseForm.php method=POST> <input type=hidden name=idCorsa value=$idCorsa> <input type=submit name=subEl value='Elimina corsa' class=elimina> </form>";
 
 
 
