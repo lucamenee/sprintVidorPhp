@@ -253,6 +253,7 @@ td {
 	font-weight: bold;
 	cursor: pointer;
 	background: white;
+	margin-left: 0.3rem;
 }
 
 .righeCorse td {
@@ -260,16 +261,20 @@ td {
 	vertical-align: middle;
 }
 
+.righeCorse input {
+	border: 2px solid #E83737; 
+	color: #E83737;
+}
+
 .righeCorse input[value=iscrivi] {
 	border: 2px solid #40CF12;
 	color: #40CF12;
 }
 
-.righeCorse input[value=disiscrivi] {
-	border: 2px solid #E83737; 
-	color: #E83737;
-}
 
+.righeCorse input[value='non partecipa'] {
+	width: 7rem;
+}
 
 
 .atleti {

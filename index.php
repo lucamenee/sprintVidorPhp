@@ -76,7 +76,9 @@ if (!isLogged()) {
 			$iscrizione = false;
 			$iscritto = "<i class=nnIscrittoP> non iscritto </i>";
 			$escluso = false;
+			$scelta = false;
 			if (mysqli_num_rows($queryResultParticipation)>0) {
+				$scelta = true;
 				$resultParticipation = mysqli_fetch_array($queryResultParticipation);
 				//checking if the kid is allowed to participate to that race
 				if ($resultParticipation["escluso"]) {
@@ -87,7 +89,7 @@ if (!isLogged()) {
 					$iscrizione = true;
 					$iscritto = "<i class=iscrittoP> iscritto </i>";
 				}
-			}
+			} 
 			
 			//bottone iscrizione bloccato se iscrizioni per quella corsa sono già terminate e mostra solo una scritta 
 			if ($dataChiusuraIscrizioni < today()) { //iscrizioni terminate
@@ -102,8 +104,11 @@ if (!isLogged()) {
 					<input type=hidden name=nomeBimbo value=$nomeFiglio>
 					<input type=hidden name=dataCorsa value=$dataEvento>
 					<input type=hidden name=luogoCorsa value=$luogo>
-					<input type=submit name=sub value='$stringToInsert'>
-					</form> </td> ";
+					<input type=submit name=sub value='$stringToInsert'>";
+					if (!$scelta) {
+						echo "<input type=submit name=sub value='non partecipa'>";
+					}
+					echo "</form> </td> ";
 			}
 			
 		}
