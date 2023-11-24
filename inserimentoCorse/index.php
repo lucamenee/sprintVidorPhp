@@ -4,7 +4,7 @@ require_once('../functions/general.php');
 session_start();
 printHead();
 
-if (!isLogged() or !$_SESSION["isAdmin"]) {
+if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 	echo "redirectoring to login";
 	header('Location: ../login');
 } else {
@@ -50,7 +50,7 @@ if (!isLogged() or !$_SESSION["isAdmin"]) {
 	</div> \n";
 
 	echo "<i>*Campi obbligatori </i> <br> <br> \n";
-	if (isset($_GET["subMod"]))
+	if (isset($_GET["subMod"]) and $_SESSION["isAdmin"])
 		echo "<form action=eliminaCorseForm.php method=POST> <input type=hidden name=idCorsa value=$idCorsa> <input type=submit name=subEl value='Elimina corsa' class=elimina> </form>";
 
 

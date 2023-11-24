@@ -4,7 +4,7 @@ require_once('../functions/general.php');
 session_start();
 printHead();
 
-if (!isLogged() or !$_SESSION["isAdmin"]) {
+if (!isLogged() or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"])) {
 	echo "redirectoring to login";
 	header('Location: ../login');
 } else {

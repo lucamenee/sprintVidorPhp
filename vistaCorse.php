@@ -36,12 +36,10 @@ if (!isLogged()  or (!$_SESSION["isAdmin"] and !$_SESSION["isTrainer"]) and !iss
 	else 
 		echo "chiuse";
 
-	if ($_SESSION["isAdmin"]) {
-		echo "<form action=./inserimentoCorse method=GET> 
-			<input type=hidden name=idCorsa value=$idCorsa>		
-			<input type=submit name=subMod value='modifica dati gara'> 
-			</form>\n";
-	}
+	echo "<form action=./inserimentoCorse method=GET> 
+		<input type=hidden name=idCorsa value=$idCorsa>		
+		<input type=submit name=subMod value='modifica dati gara'> 
+		</form>\n";
 	
 	if (isset($_POST["postBack"]) and $_POST["postBack"] != "fine modifica") 
 		$valueModifica = "fine modifica";
