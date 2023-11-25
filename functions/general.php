@@ -27,7 +27,6 @@ function printHead() {
 
 	echo "<head>
 	  <link href='$path/style.css' rel='stylesheet'>
-	  <link rel='icon' type='image/x-icon' href='$path/favicon.ico'>
 	  <script src='$path/functions/general.js'></script>
 	</head>";
 	
