@@ -34,7 +34,7 @@ function printHead() {
 			<h1> SPRINT VIDOR </h1>
 			<h2> LA VALLATA A.S.D. </h2> 
 		</div>\n 
-		<img class=logo id=logo src='$path/img/logoAltNoSfondo.png' width=120 height=120 align=right>\n";
+		<img class=logo id=logo src='$path/img/logoNoSfondo.png' width=120 height=120 align=right>\n";
 
 	if (isset($_SESSION["isLogged"]) and $_SESSION["isLogged"]) {
 		echo "<div class='toolbar' id='toolbar'>\n";
